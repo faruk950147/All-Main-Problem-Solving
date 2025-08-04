@@ -1,0 +1,84 @@
+{
+    "company_name": "Brain station 25",
+    "employees": {
+      "employee1": {
+        "name": "Faruk",
+        "age": 22,
+        "gender": "Male",
+        "salary": 20000,
+        "bank_name": "Dhaka Bank"
+      },
+      "employee2": {
+        "name": "Braund",
+        "age": 24,
+        "gender": "Male",
+        "salary": 20000,
+        "bank_name": "Asia Bank"
+      },
+      "employee3": {
+        "name": "John",
+        "age": 26,
+        "gender": "Male",
+        "salary": 20000,
+        "bank_name": "Islami Bank"
+      },
+      "employee4": {
+        "name": "Jane",
+        "age": 23,
+        "gender": "Female",
+        "salary": 20000,
+        "bank_name": "National Bank"
+      },
+      "employee5": {
+        "name": "Doe",
+        "age": 25,
+        "gender": "Male",
+        "salary": 20000,
+        "bank_name": "Standard Bank"
+      },
+      "employee6": {
+        "name": "Alice",
+        "age": 27,
+        "gender": "Female",
+        "salary": 20000,
+        "bank_name": "Dhaka Bank"
+      },
+      "employee7": {
+        "name": "Bob",
+        "age": 28,
+        "gender": "Male",
+        "salary": 20000,
+        "bank_name": "Dhaka Bank"
+      },
+      "employee8": {
+        "name": "Eve",
+        "age": 24,
+        "gender": "Female",
+        "salary": 20000,
+        "bank_name": "Dhaka Bank"
+      },
+      "employee9": {
+        "name": "Charlie",
+        "age": 26,
+        "gender": "Male",
+        "salary": 20000,
+        "bank_name": "Dhaka Bank" 
+      },
+      "employee10": {
+        "name": "Diana",
+        "age": 23,
+        "gender": "Female",
+        "salary": 20000,
+        "bank_name": "Dhaka Bank"
+      },
+      "employee11": {
+        "name": "Frank",
+        "age": 29,
+        "gender": "Male",
+        "salary": 20000,
+        "bank_name": "Dhaka Bank",
+        "pets": ["cat", "dog"]
+      }
+    }
+  }
+  
