@@ -44,6 +44,7 @@
 # Thread synchronization is used to prevent race conditions and ensure data consistency.
 
 
+import threading
 import time
 
 def print_numbers():
@@ -56,5 +57,17 @@ def print_letters():
         print("Letter:", letter)
         time.sleep(1)
 
-print_numbers()
-print_letters()
+# create threads 
+t1 = threading.Thread(target=print_numbers)
+t2 = threading.Thread(target=print_letters)
+
+# start threads
+t1.start()
+t2.start()
+
+# main thread will wait for t1 and t2 to finish
+t1.join()
+t2.join()
+
+print("Done!")
+

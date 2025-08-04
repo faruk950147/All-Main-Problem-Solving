@@ -43,18 +43,27 @@
 # Thread synchronization is used to prevent race conditions and ensure data consistency.
 # Thread synchronization is used to prevent race conditions and ensure data consistency.
 
+import threading
 
-import time
+# current_thread = threading.current_thread().name
+# print(current_thread) 
 
-def print_numbers():
-    for i in range(5):
-        print("Number:", i)
-        time.sleep(1)
+# def display(n):
+#     for i in range(10):
+#         print(n)
+        
+# thread1 = threading.Thread(target=display, args=("Hello",))
+# thread2 = threading.Thread(target=display, args=("World",))
 
-def print_letters():
-    for letter in ['A', 'B', 'C', 'D', 'E']:
-        print("Letter:", letter)
-        time.sleep(1)
+# thread1.start()
+# thread2.start()
 
-print_numbers()
-print_letters()
+def display(n, msg):
+    for i in range(10):
+        print(n, msg)
+        
+thread1 = threading.Thread(target=display, args=("Hello", "Welcome"))
+thread2 = threading.Thread(target=display, args=("World", "Welcome"))
+
+thread1.start()
+thread2.start()
