@@ -1,0 +1,224 @@
+
+def change(name):  # একটি ফাংশন যার নাম change এবং এটি একটি প্যারামিটার নেয়: name
+    first_name, last_name = name.split(" ")  # name-কে স্পেস (" ") দিয়ে ভাগ করে দুটি ভেরিয়েবলতে রাখে
+    return first_name, last_name  # দুইটা নাম রিটার্ন করে
+print(change("John Doe"))  # ফাংশনটি কল করে এবং আউটপুট প্রিন্ট করে
+name.split(" ") মানে কী?
+"John Doe".split(" ") → এটি একটি string কে স্পেস দিয়ে ভাগ করে list বানায়:
+
+["John", "Doe"]
+তারপর এই list এর প্রথম উপাদান first_name, এবং দ্বিতীয়টা last_name হয়।
+
+Output কী হবে?
+('John', 'Doe')
+এখানে এটা একটা tuple: (first_name, last_name) = ("John", "Doe")
+
+যদি তুমি বুঝতে না পারো tuple/return, নিচেরটা দেখো:
+fname, lname = change("John Doe")
+print("First name:", fname)
+print("Last name:", lname)
+Output:
+
+First name: John
+Last name: Doe
+চাইলে change() ফাংশনকে list বা dictionary আকারেও return করানো যায় — যদি তোমার প্রয়োজন থাকে তাহলে আমি দেখাতে পারি। বলো, কীভাবে দেখতে চাও?
+
+
+
+
+
+
+
+
+You said:
+    @full_name.setter
+    def full_name(self, name):
+        first_name, last_name = name.split(" ") # split the name into first_name and last_name respectively
+        self.first_name = first_name
+        self.last_name = last_name eikhane str
+
+
+ChatGPT said:
+তুমি যেটা দেখাচ্ছো, সেটা হচ্ছে Python-এর একটি property setter method—যেটা সাধারণত ক্লাসের ভেতরে লেখা হয়। তুমি হয়তো full_name নামের একটি property ব্যবহার করছো, যাতে কেউ object.full_name = "John Doe" এভাবে দিলে সেটা first_name আর last_name এ আলাদা হয়ে যায়।
+
+তুমি জানতে চাও: name.split(" ") লাইনে যদি name string না হয়, তাহলে কী হবে? নিচে পুরো ব্যাখ্যা দিচ্ছি।
+
+পূর্ণ কোড সহ ব্যাখ্যা:
+class Person:
+    def __init__(self, first_name, last_name):
+        self.first_name = first_name
+        self.last_name = last_name
+
+    @property
+    def full_name(self):
+        return f"{self.first_name} {self.last_name}"
+
+    @full_name.setter
+    def full_name(self, name):
+        first_name, last_name = name.split(" ")  # এখানে name অবশ্যই string হতে হবে
+        self.first_name = first_name
+        self.last_name = last_name
+উদাহরণ ব্যবহার:
+p = Person("John", "Doe")
+print(p.full_name)  # ➜ John Doe
+
+p.full_name = "Jane Smith"  # setter কাজ করবে
+print(p.first_name)  # ➜ Jane
+print(p.last_name)   # ➜ Smith
+কিন্তু যদি name string না হয়?
+যেমন:
+p.full_name = 12345
+তাহলে name.split(" ") এ AttributeError হবে, কারণ int টাইপে .split() মেথড নেই।
+
+Error:
+AttributeError: 'int' object has no attribute 'split'
+সমাধান: type-check করে exception দেওয়া
+@full_name.setter
+def full_name(self, name):
+    if not isinstance(name, str):
+        raise ValueError("Full name must be a string.")
+    parts = name.split(" ")
+    if len(parts) != 2:
+        raise ValueError("Full name must contain exactly first and last name.")
+    self.first_name, self.last_name = parts
+এখন যদি কেউ ভুল string দেয়, বা int দেয়, তাহলে তুমি নিজে থেকেই error show করতে পারবে।
+
+🔚 সংক্ষেপে:
+split(" ") ব্যবহার করার আগে নিশ্চিত হও যে input str টাইপ।
+
+তুমি চাইলে try-except ছাড়াও isinstance() দিয়ে যাচাই করতে পারো।
+
+setter method এর ভিতরে always validation করা ভালো practice।
+
+আরো সাহায্য লাগলে বলো, আমি সম্পূর্ণ প্রজেক্ট আকারে দিতে পারি।
+
+
+
+
+
+
+
+
+You said:
+eta str type dekhai keno
+
+
+ChatGPT said:
+তুমি @full_name.setter এর ভেতরে name.split(" ") ব্যবহার করছো, তাই Python নিজে থেকেই ধরে নিচ্ছে যে name ভেরিয়েবলটা string হওয়া উচিত। কারণ .split() মেথড শুধুমাত্র string object-এর জন্যই কাজ করে।
+
+🔍 তাহলে প্রশ্ন: "eta str type dekhai keno?"
+এর কারণ হলো:
+
+first_name, last_name = name.split(" ")
+এই লাইনে name-কে .split(" ") করা হয়েছে — এটা শুধুমাত্র তখনই কাজ করে, যখন name একটা string।
+
+যদি তুমি এই কোড চালাও:
+class Person:
+    def __init__(self, first, last):
+        self.first_name = first
+        self.last_name = last
+
+    @property
+    def full_name(self):
+        return f"{self.first_name} {self.last_name}"
+
+    @full_name.setter
+    def full_name(self, name):
+        print(type(name))  # এখানে type দেখাবে
+        first_name, last_name = name.split(" ")
+        self.first_name = first_name
+        self.last_name = last_name
+এবং এরপর এইটা দাও:
+p = Person("John", "Doe")
+p.full_name = "Jane Smith"
+Output হবে:
+<class 'str'>
+কারণ "Jane Smith" একটা string — তাই type(name) দেখালে <class 'str'> আসবে।
+
+যদি তুমি int দাও:
+p.full_name = 12345
+তাহলে error আসবে:
+AttributeError: 'int' object has no attribute 'split'
+তুমি যদি print(type(name)) দিয়ে আগেই দেখো, তাহলে পাবে:
+p.full_name = 12345
+তাহলে error আসবে:
+AttributeError: 'int' object has no attribute 'split'
+তুমি যদি print(type(name)) দিয়ে আগেই দেখো, তাহলে পাবে:
+
+<class 'int'>
+তাই সংক্ষেপে:
+তুমি যদি "John Doe" string assign করো, Python সেটার type naturally <class 'str'> দেখাবে।
+
+কারণ .split(" ") call করার সময় Python internally str.split() চায়।
+
+যদি সেটা string না হয়, তাহলে error দিবে — তাই আগেই type(name) check করা best practice।
+
+চাইলে আমি এই code-ta interactive বানিয়ে দিতেও পারি, যাতে type error handle হয়। বলো, লাগবে কি?
+
+
+হ্যাঁ! একদম ঠিক ধরেছো — split() method list return করে। এখন আমি এটা পুরো ক্লিয়ার করে বলছি:
+
+🔹 split() কী করে?
+str.split(" ") 👉 একটি string কে স্পেস দিয়ে কেটে list বানায়।
+
+উদাহরণ:
+name = "John Doe"
+parts = name.split(" ")
+print(parts)
+Output:
+['John', 'Doe']
+এখানে parts হচ্ছে একটি list: ['John', 'Doe']
+
+তাহলে এই লাইনটা কী করে?
+first_name, last_name = name.split(" ")
+এখানে হচ্ছে Python unpacking — split এর ফলাফল (একটি list) এর দুটি item কে দুটি ভেরিয়েবলে unpack করা হচ্ছে।
+
+সমান মানে:
+parts = name.split(" ")
+first_name = parts[0]
+last_name = parts[1]
+তবে Python এটাকে শর্ট করে এভাবে লিখতে দেয়:
+first_name, last_name = name.split(" ")
+যদি list এর length 2 না হয়?
+name = "John Michael Doe"
+first_name, last_name = name.split(" ")
+Error হবে:
+ValueError: too many values to unpack (expected 2)
+parts = name.split(" ")
+first_name = parts[0]
+last_name = parts[1]
+তবে Python এটাকে শর্ট করে এভাবে লিখতে দেয়:
+
+first_name, last_name = name.split(" ")
+যদি list এর length 2 না হয়?
+name = "John Michael Doe"
+first_name, last_name = name.split(" ")
+Error হবে:
+ValueError: too many values to unpack (expected 2)
+parts = name.split(" ")
+first_name = parts[0]
+last_name = parts[1]
+তবে Python এটাকে শর্ট করে এভাবে লিখতে দেয়:
+
+first_name, last_name = name.split(" ")
+যদি list এর length 2 না হয়?
+name = "John Michael Doe"
+first_name, last_name = name.split(" ")
+Error হবে:
+ValueError: too many values to unpack (expected 2)
+name = "John Michael Doe"
+first_name, last_name = name.split(" ")
+Error হবে:
+ValueError: too many values to unpack (expected 2)
+কারণ "John Michael Doe".split(" ") ➜ ['John', 'Michael', 'Doe'] (3টা item), কিন্তু আমরা চাচ্ছি 2টা ভেরিয়েবল।
+
+সঠিকভাবে ব্যবহার করার জন্য:
+parts = name.split(" ")
+if len(parts) == 2:
+    first_name, last_name = parts
+else:
+    raise ValueError("Full name must contain exactly first and last name.")
+🔚 সংক্ষেপে:
+Function	Return type
+split(" ")	list
+first, last = ...	unpacking

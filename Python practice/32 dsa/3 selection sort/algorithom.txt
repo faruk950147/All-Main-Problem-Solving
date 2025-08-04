@@ -1,0 +1,8 @@
+1. Let list length be n
+2. For i from 0 to n - 2:
+    a. Let min_index = i
+    b. For j from i+1 to n - 1:
+        i. If list[j] < list[min_index]:
+            min_index = j
+    c. If min_index != i:
+        Swap list[i] and list[min_index]

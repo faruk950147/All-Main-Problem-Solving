@@ -1,0 +1,21 @@
+// navigator
+const appName = document.getElementById("appName");
+appName.innerHTML = "App Name : " + navigator.appName;
+const appVersion = document.getElementById("appVersion");
+appVersion.innerHTML = "App Version : " + navigator.appVersion;
+const cookieEnabled = document.getElementById("cookieEnabled");
+cookieEnabled.innerHTML = "Cookie Enabled : " + navigator.cookieEnabled;
+const platform = document.getElementById("platform");
+platform.innerHTML = "Platform : " + navigator.platform;
+const userAgent = document.getElementById("userAgent");
+userAgent.innerHTML = "User Agent : " + navigator.userAgent;
+const language = document.getElementById("language");
+language.innerHTML = "Language : " + navigator.language;
+const onLine = document.getElementById("onLine");
+onLine.innerHTML = "On Line : " + navigator.onLine;
+const pythonEnabled = document.getElementById("pythonEnabled");
+pythonEnabled.innerHTML = "Python Enabled : " + navigator.pythonEnabled();
+const plugins = document.getElementById("plugins");
+plugins.innerHTML = "Plugins : " + navigator.plugins;
+const mimeTypes = document.getElementById("mimeTypes");
+mimeTypes.innerHTML = "Mime Types : " + navigator.mimeTypes;

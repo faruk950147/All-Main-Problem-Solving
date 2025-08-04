@@ -1,0 +1,210 @@
+প্রথমে বুঝি: Prototype Design Pattern কী?
+
+ ধরো তুমি একটা Object বারবার নতুন করে বানাতে চাইছো না।
+ তার বদলে, আগের কোনো Object এর একটা copy বা clone তৈরি করে কাজ চালাতে চাইছো।
+ Prototype pattern ঠিক এই কাজটাই করে:
+ Original Object থেকে Deep Copy নিয়ে নতুন Object তৈরি করে।
+ এবার তোমার কোডের ধাপে ধাপে ব্যাখ্যা:
+1. Prototype Class:
+
+import copy
+
+class Prototype:
+    def __init__(self):
+        self.objects = {}  # এখানে সব প্রোটোটাইপ object গুলা store হবে Dictionary আকারে
+
+    এখানে objects হচ্ছে একটা dictionary যেখানে তুমি তোমার original objects গুলা name দিয়ে register করতে পারো।
+
+2. Object Register করার method:
+
+def register_object(self, name, obj):
+    self.objects[name] = obj
+
+তুমি যেই object কে prototype হিসেবে রাখতে চাও,
+সেটাকে এখানে একটা নাম সহ Register করা হবে।
+
+3. Unregister Method:
+
+def unregister_object(self, name):
+    del self.objects[name]
+
+যদি দরকার হয়, তুমি আগের কোনো object delete/unregister করতে পারো।
+
+4. Clone Method (মূল কাজ):
+
+def clone(self, name, **attributes):
+    obj = copy.deepcopy(self.objects.get(name))  # Original object এর deep copy নিচ্ছে
+    obj.__dict__.update(attributes)              # চাইলে নতুন কিছু attribute change করতে পারো
+    return obj
+
+এখানে Deep Copy নেওয়া হচ্ছে।
+মানে: পুরো Object এর একদম আলাদা copy হবে।
+চাইলে তুমি কপি করার সময় কিছু attribute পরিবর্তন করতে পারো (যেমন রং পরিবর্তন)।
+
+5. Example Class (Car):
+
+class Car:
+    def __init__(self):
+        self.make = "Ford"
+        self.model = "Mustang"
+        self.color = "Red"
+
+    def __str__(self):
+        return f'{self.make} {self.model} {self.color}'
+
+এখানে একটা Car class বানানো হয়েছে।
+তার ডিফল্ট মান:
+
+    make: Ford
+
+    model: Mustang
+
+    color: Red
+
+6. Execution / Output:
+
+if __name__ == "__main__":
+    prototype = Prototype()          # Prototype class এর object বানালাম
+    car = Car()                      # একটা original car বানালাম
+    prototype.register_object('mustang', car)  # এটা prototype list এ রাখলাম
+    car_clone = prototype.clone('mustang', color='Blue')  # নতুন একটা কপি নিলাম, color change করলাম
+
+    print(car)        # Output: Ford Mustang Red
+    print(car_clone)  # Output: Ford Mustang Blue
+
+Output:
+
+Ford Mustang Red
+Ford Mustang Blue
+
+এই কোডে যা শিখলে:
+কাজ	ব্যাখ্যা
+একটা object বারবার নতুন করে না বানিয়ে আগের একটা object থেকে কপি নেয়া	Prototype Pattern এর মূল উদ্দেশ্য
+Deepcopy ব্যবহার	যেন original object পরিবর্তন না হয়
+Attribute override	কপি করার সময় নতুন মান সেট করা
+সংক্ষেপে:
+
+Prototype Design Pattern = পুরাতন Object থেকে copy (clone) নিয়ে নতুন Object তৈরি করা।
+Python এ copy.deepcopy() দিয়ে এটা সহজেই করা যায়।
+
+প্রথমে: আরেকটা Prototype Design Pattern উদাহরণ (Python)
+
+উদাহরণ: ধরো তুমি একটা Shape Drawing Application বানাচ্ছো।
+তুমি বারবার নতুন করে Circle, Rectangle, Square বানাতে চাইছো না।
+তুমি চাইছো: একবার একটা বানিয়ে, তারপর সেটার copy / clone করে নতুনগুলো তৈরি করো।
+Shape Example (Prototype Design Pattern):
+
+import copy
+
+# Prototype Base Class
+class Prototype:
+    def __init__(self):
+        self.objects = {}
+
+    def register_object(self, name, obj):
+        self.objects[name] = obj
+
+    def unregister_object(self, name):
+        del self.objects[name]
+
+    def clone(self, name, **attributes):
+        obj = copy.deepcopy(self.objects.get(name))
+        obj.__dict__.update(attributes)
+        return obj
+
+# Example Shape Class
+class Shape:
+    def __init__(self, shape_type, color):
+        self.shape_type = shape_type
+        self.color = color
+
+    def __str__(self):
+        return f"Shape: {self.shape_type}, Color: {self.color}"
+
+if __name__ == "__main__":
+    prototype = Prototype()
+
+    circle = Shape("Circle", "Red")
+    rectangle = Shape("Rectangle", "Blue")
+
+    prototype.register_object('circle', circle)
+    prototype.register_object('rectangle', rectangle)
+
+    circle_clone = prototype.clone('circle', color="Green")
+    rectangle_clone = prototype.clone('rectangle', color="Yellow")
+
+    print(circle)          # Output: Shape: Circle, Color: Red
+    print(circle_clone)    # Output: Shape: Circle, Color: Green
+    print(rectangle)       # Output: Shape: Rectangle, Color: Blue
+    print(rectangle_clone) # Output: Shape: Rectangle, Color: Yellow
+
+এই উদাহরণে শিখলে:
+
+    বিভিন্ন shape বানিয়ে prototype list এ রাখা
+
+    পরে যেটার দরকার set করে কপি নেয়া
+
+    color বা অন্য property clone করার সময় modify করা
+
+এখন: আরেকটা ভিন্ন Design Pattern Example (Factory Pattern)
+
+Factory Design Pattern:
+"কোন class থেকে কোন object বানানো হবে, সেটা runtime এ নির্ধারিত হবে"
+Factory Pattern Example (Python):
+
+class Animal:
+    def speak(self):
+        pass
+
+class Dog(Animal):
+    def speak(self):
+        return "Woof!"
+
+class Cat(Animal):
+    def speak(self):
+        return "Meow!"
+
+class AnimalFactory:
+    def create_animal(self, animal_type):
+        if animal_type == "dog":
+            return Dog()
+        elif animal_type == "cat":
+            return Cat()
+        else:
+            return None
+
+if __name__ == "__main__":
+    factory = AnimalFactory()
+
+    animal1 = factory.create_animal("dog")
+    animal2 = factory.create_animal("cat")
+
+    print(animal1.speak())  # Output: Woof!
+    print(animal2.speak())  # Output: Meow!
+
+Factory Pattern এ শিখলে:
+
+    Object creation একটা Factory class এর মাধ্যমে হয়
+
+    কোন object বানানো হবে, decision runtime এ হয়
+
+    Client code direct কোন class instantiate করে না
+
+Summary:
+Pattern	কাজ
+Prototype Pattern	আগের object থেকে কপি করে নতুন object বানানো
+Factory Pattern	Factory method ব্যবহার করে runtime এ নির্ধারণ করা কোন object বানানো হবে
+
+তুমি চাইলে Singleton Pattern বা Strategy Pattern অথবা Observer Pattern-ও শিখতে পারো।
+
+পরবর্তী কোন Design Pattern শিখতে চাও?
+
+    Singleton
+
+    Strategy
+
+    Observer
+
+    নাকি আরেকটা example?
+
+বলো কWhich one? 

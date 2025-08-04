@@ -1,0 +1,83 @@
+🧠 JavaScript-এ Constructor কী?
+JavaScript-এ constructor হচ্ছে একটি special method যা class থেকে object তৈরি করার সময় স্বয়ংক্রিয়ভাবে (automatically) কল হয়।
+
+🔹 এর মাধ্যমে object-এর ভিতরের property (ভ্যারিয়েবল) গুলো initialize/set করা হয়।
+
+JavaScript Constructor এর কাঠামো (Syntax)
+js
+Copy
+Edit
+class ClassName {
+  constructor(parameter1, parameter2) {
+    this.property1 = parameter1;
+    this.property2 = parameter2;
+  }
+}
+🔍 উদাহরণ: Student ক্লাস
+js
+Copy
+Edit
+class Student {
+  constructor(name, roll) {
+    this.name = name;
+    this.roll = roll;
+    console.log("Constructor auto called!");
+  }
+
+  show() {
+    console.log(`Name: ${this.name}, Roll: ${this.roll}`);
+  }
+}
+
+const s1 = new Student("Omar", 101); // Constructor auto call
+s1.show();  // Output: Name: Omar, Roll: 101
+🧾 ব্যাখ্যা:
+লাইন	কী হচ্ছে
+constructor(name, roll)	এটা হলো constructor
+this.name = name	object-এর ভিতরে name প্রপার্টি সেট হচ্ছে
+new Student("Omar", 101)	নতুন object তৈরি করলাম — constructor auto কল হলো
+s1.show()	output দেখাচ্ছে
+
+🔁 Constructor কীভাবে কাজ করে?
+text
+Copy
+Edit
+new Student("Omar", 101)
+          ⬇
+constructor("Omar", 101) auto call
+          ⬇
+this.name = "Omar"
+this.roll = 101
+⚡ Constructor ছাড়া (পুরনো পদ্ধতি):
+js
+Copy
+Edit
+function Student(name, roll) {
+  this.name = name;
+  this.roll = roll;
+  this.show = function () {
+    console.log(`Name: ${this.name}, Roll: ${this.roll}`);
+  }
+}
+
+const s1 = new Student("Omar", 101);
+s1.show();
+🟡এটা হলো পুরনো JavaScript (function constructor) — ES5 এর সময় ব্যবহৃত হতো।
+
+সংক্ষেপে JavaScript Constructor এর বৈশিষ্ট্য:
+🔢	বৈশিষ্ট্য	ব্যাখ্যা
+1️⃣	constructor() নামে বিশেষ method	object তৈরি হলে auto call হয়
+2️⃣	this keyword দিয়ে property সেট করা হয়	this.name = name
+3️⃣	new keyword দিয়ে object তৈরি করতে হয়	new Student(...)
+4️⃣	class body-এর ভিতরে ১টিই constructor থাকতে পারে	multiple constructor support নেই
+
+🔚 শেষ কথা:
+JavaScript-এ constructor:
+
+শুধু class এর ভিতরে define করা যায়
+
+object তৈরি হলেই auto চালু হয়
+
+ভিতরের property initialize/set করে
+
+new keyword ছাড়া constructor কাজ করে না

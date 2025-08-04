@@ -1,0 +1,131 @@
+Class এবং Object হলো Object-Oriented Programming (OOP)-এর মূল ধারণা।
+
+Class কী?
+Class হলো একটা template বা blueprint যেটা দিয়ে আমরা কোনো ধরনের বস্তু (object) তৈরি করি।
+
+যেমন ধরো, তুমি একটা গাড়ির class বানাও — সেখানে গাড়ির বৈশিষ্ট্য (যেমন রং, মডেল, গতি) আর কাজ (যেমন start করা, stop করা) define করবে।
+
+উদাহরণ (Python):
+
+python
+Copy
+Edit
+class Car:
+    def __init__(self, color, model):
+        self.color = color
+        self.model = model
+    
+    def start(self):
+        print("গাড়ি চলছে")
+Object কী?
+Object হলো class থেকে তৈরি করা একটি নির্দিষ্ট বস্তু।
+
+যেমন, তোমার কাছে একটা Car class আছে, এখন তোমার কাছে "লাল রঙের Toyota" গাড়ি একটা object হবে।
+
+python
+Copy
+Edit
+my_car = Car("লাল", "Toyota")
+my_car.start()  # আউটপুট: গাড়ি চলছে
+সারসংক্ষেপ:
+Class	Object
+একটি template/blueprint	Class থেকে তৈরি একটি নির্দিষ্ট instance
+বৈশিষ্ট্য ও কাজ define করে	বাস্তব জগতে কোনো একটা entity
+Abstract ধারণা	Concrete বাস্তব বস্তু
+
+OOP-এর 4টি মূল স্তম্ভ (4 Pillars) সহজ ভাষায়:
+1. Encapsulation (আবরণ/প্যাকেট করা)
+কী?
+তোমার ডেটা (যেমন নাম, বয়স) আর কাজ করার মেথড (function) — সব একসাথে একটা ক্লাসের ভেতরে প্যাকেট করে রাখা হয়। বাইরে থেকে কেউ চাইলে সরাসরি ডেটা চেঞ্জ করতে পারবে না।
+
+উদাহরণ:
+python
+Copy
+Edit
+class Student:
+    def __init__(self, name, age):
+        self.name = name    # data
+        self.age = age      # data
+
+    def show(self):         # method
+        print(f"{self.name} is {self.age} years old")
+বুঝো কিভাবে?
+যেন একটা বাক্সের ভিতরে সবকিছু আছে — বাইরে থেকে তুমি শুধু দরজা দিয়ে ঢুকতে পারো, ভেতরের সবকিছু খুলে ফেলতে পারো না।
+
+2. Abstraction (অপ্রয়োজনীয় জিনিস লুকানো)
+কী?
+ইউজারকে শুধু দরকারি জিনিস দেখানো হয়, ভিতরের জটিল কোড, অপ্রয়োজনীয় জিনিস লুকিয়ে ফেলা হয়।
+
+উদাহরণ:
+python
+Copy
+Edit
+from abc import ABC, abstractmethod
+
+class Animal(ABC):
+    @abstractmethod
+    def sound(self):
+        pass
+
+class Dog(Animal):
+    def sound(self):
+        print("Bark")
+
+class Cat(Animal):
+    def sound(self):
+        print("Meow")
+
+বুঝো কিভাবে?
+তুমি মোবাইল চালাও — শুধু বোতাম চেপে কাজ হয়। ভিতরে সার্কিট কীভাবে কাজ করে, তুমি জানো না — এটা হচ্ছে abstraction।
+
+3. Inheritance (উত্তরাধিকার/বংশগত)
+কী?
+একটা ক্লাস আরেকটা ক্লাস থেকে প্রোপার্টি (ডেটা+মেথড) পায়। যেমন বাবা থেকে ছেলে কিছু জিনিস পায়।
+
+উদাহরণ:
+python
+Copy
+Edit
+class Person:
+    def speak(self):
+        print("I can speak")
+
+class Student(Person):  # Inherits from Person
+    def study(self):
+        print("I can study")
+
+বুঝো কিভাবে?
+বাবা কথা বলতে পারে, ছেলে বাবার মতোই কথা বলতে পারে + নিজের আলাদা কাজও করতে পারে।
+
+4. Polymorphism (এক নামে অনেক কাজ)
+কী?
+একই নামের ফাংশন, কিন্তু বিভিন্ন ক্লাসে ভিন্নভাবে কাজ করে।
+
+উদাহরণ:
+python
+Copy
+Edit
+class Bird:
+    def sound(self):
+        print("Chirp")
+
+class Cow:
+    def sound(self):
+        print("Moo")
+
+def make_sound(animal):
+    animal.sound()
+
+b = Bird()
+c = Cow()
+make_sound(b)  # Chirp
+make_sound(c)  # Moo
+বুঝো কিভাবে?
+একই নাম sound(), কিন্তু বিভিন্ন প্রাণী ভিন্ন শব্দ করে — এটিই polymorphism।
+
+এক কথায় মনে রাখার টিপস:
+Pillar	মনে রাখার কৌশল
+Encapsulation	সব কিছু এক প্যাকেট (class) এ
+Abstraction	দরকারি জিনিস দেখাও, বাকি লুকাও
+Inheritance	বাবা-মায়ের জিনিস ছেলেমেয়ে পায়
+Polymorphism	এক নাম, আলাদা কাজ

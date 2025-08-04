@@ -1,0 +1,90 @@
+🔌 requests হলো Python-এর একটি জনপ্রিয় লাইব্রেরি, যেটি দিয়ে আপনি সহজে HTTP রিকোয়েস্ট (যেমন GET, POST) পাঠাতে পারেন — ওয়েবসাইট থেকে ডেটা আনার জন্য।
+
+🔍 requests দিয়ে কী করা যায়?
+কাজ	উদাহরণ
+ওয়েব পেজ লোড করা	ওয়েবসাইটের HTML কনটেন্ট আনা
+API কল করা	JSON ডেটা পাওয়া
+ফর্ম ডেটা পাঠানো	POST রিকোয়েস্ট দিয়ে লগইন বা সাবমিট
+ফাইল ডাউনলোড	ছবি, পিডিএফ ডাউনলোড করা
+
+📦 ইনস্টল:
+bash
+Copy
+Edit
+pip install requests
+✅ সাধারণ উদাহরণ (GET রিকোয়েস্ট):
+python
+Copy
+Edit
+import requests
+
+url = "https://example.com"
+response = requests.get(url)
+
+print(response.status_code)  # 200 হলে success
+print(response.text)         # HTML কনটেন্ট
+📤 POST রিকোয়েস্ট (ফর্ম সাবমিট):
+python
+Copy
+Edit
+import requests
+
+url = "https://httpbin.org/post"
+data = {
+    "username": "omar",
+    "password": "1234"
+}
+
+response = requests.post(url, data=data)
+
+print(response.text)
+📄 JSON API থেকে ডেটা আনা:
+python
+Copy
+Edit
+import requests
+
+url = "https://jsonplaceholder.typicode.com/todos/1"
+response = requests.get(url)
+
+data = response.json()
+print(data['title'])
+🖼️ ফাইল ডাউনলোড (ছবি বা PDF):
+python
+Copy
+Edit
+import requests
+
+url = "https://example.com/image.jpg"
+response = requests.get(url)
+
+with open("image.jpg", "wb") as f:
+    f.write(response.content)
+⚠️ যদি রিকোয়েস্ট ব্যর্থ হয়:
+python
+Copy
+Edit
+import requests
+
+try:
+    response = requests.get("https://invalid-url.com")
+    response.raise_for_status()  # Error থাকলে exception ছুঁড়ে দিবে
+except requests.exceptions.RequestException as e:
+    print("Error:", e)
+🤖 Web Scraping-এ requests ব্যবহার করে:
+python
+Copy
+Edit
+import requests
+from bs4 import BeautifulSoup
+
+url = "https://example.com"
+response = requests.get(url)
+soup = BeautifulSoup(response.text, 'html.parser')
+
+for p in soup.find_all('p'):
+    print(p.text)
+🔚 শেষ কথা:
+requests হলো Web Scraping বা API কাজ করার সবচেয়ে সহজ এবং শক্তিশালী টুলগুলোর একটি।
+
+আপনি যদি Daraz/Wikipedia বা অন্য কোনো সাইট থেকে ডেটা আনতে চান — শুধু বলুন, আমি আপনার জন্য ফুল কোড লিখে দিচ্ছি বাংলায়।

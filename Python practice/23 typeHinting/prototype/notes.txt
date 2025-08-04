@@ -1,0 +1,78 @@
+১. Prototype Design Pattern (Design Level Concept)
+
+এটা হলো Design Pattern এর একটা ধরন।
+মানে: "একটা অবজেক্ট তৈরি করার জন্য আগের কোনো অবজেক্টের কপি (clone) করা"।
+বারবার নতুন object create না করে আগের একটার copy করে কাজ চালানো হয়।
+বিশেষ করে যখন নতুন object তৈরি করা খুব বেশি resource বা time consuming হয় তখন।
+Python Example: Prototype Design Pattern
+
+import copy
+
+class Prototype:
+    def __init__(self):
+        self.objects = {}
+
+    def register_object(self, name, obj):
+        self.objects[name] = obj
+
+    def unregister_object(self, name):
+        del self.objects[name]
+
+    def clone(self, name, **attributes):
+        obj = copy.deepcopy(self.objects.get(name))
+        obj.__dict__.update(attributes)
+        return obj
+
+# Example Class
+class Car:
+    def __init__(self):
+        self.make = "Ford"
+        self.model = "Mustang"
+        self.color = "Red"
+
+    def __str__(self):
+        return f'{self.make} {self.model} {self.color}'
+
+# Using the Prototype
+prototype = Prototype()
+car = Car()
+prototype.register_object('mustang', car)
+
+car_clone = prototype.clone('mustang', color='Blue')
+
+print(car)        # Output: Ford Mustang Red
+print(car_clone)  # Output: Ford Mustang Blue
+
+এখানে:
+
+    প্রথমে আমরা একটা original object (car) বানিয়েছি।
+
+    তারপর সেটা register করেছি।
+
+    পরে সেই object এর copy করে একটা নতুন object তৈরি করেছি।
+
+    কপি করার সময় চাইলেই কিছু attribute পরিবর্তন করতে পারি।
+
+২. Python Function Prototype (Function Signature / Declaration style)
+
+C/C++ এর মতো Python-এ "function prototype" আলাদা করে ডিক্লেয়ার" করতে হয় না।
+তবে Python এ যখন তুমি ফাংশন লেখো, তখন function signature বা method signature কে অনেকে function prototype বলে।
+
+উদাহরণ:
+
+def add(a: int, b: int) -> int:
+    return a + b
+
+এখানে 👉
+
+    ফাংশনের নাম: add
+
+    ইনপুট টাইপ: int, int
+
+    রিটার্ন টাইপ: int
+    এটাকেও অনেকে বলে Python Function Prototype।
+
+সংক্ষেপে:
+Concept	Meaning
+Python Design Pattern	পুরনো object থেকে copy করে নতুন object তৈরি করা
+Function Prototype	ফাংশনের signature বা ডেফিনিশন

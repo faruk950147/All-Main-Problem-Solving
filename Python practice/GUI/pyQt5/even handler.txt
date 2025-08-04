@@ -1,0 +1,7 @@
+ইভেন্ট	বোঝায়
+.clicked	বাটনে ক্লিক
+.textChanged	লেখা বদলানো
+.stateChanged	চেকবক্সের অবস্থা বদলানো
+.valueChanged	স্লাইডার বা স্পিনবক্সের মান বদলানো
+.keyPressEvent()	কীবোর্ড চাপা
+.mousePressEvent()	মাউস ক্লিক

@@ -1,0 +1,43 @@
+✅ Python Dunder / Magic Methods & তাদের কাজ
+Method	কাজ
+__init__(self, ...)	Constructor, object তৈরি সময় initialize করার কাজ করে।
+__str__(self)	Object কে human-readable string বানায়। যেমন print(object) করলে যেটা দেখা যায়।
+__repr__(self)	Object-এর official string representation দেয় (debugging friendly)।
+__call__(self, ...)	Object কে function-এর মতো callable করে। যেমন: obj()
+__len__(self)	len(obj) কল করলে এটা চলে। Object-এর length ফেরত দেয়।
+__getitem__(self, key)	obj[key] এইভাবে index বা key access করলে এটা চলে।
+__setitem__(self, key, value)	obj[key] = value দিলে এটা চলে।
+__delitem__(self, key)	del obj[key] করলে এটা চলে।
+__iter__(self)	Object কে iterable বানায় (for loop চালাতে পারবে)।
+__next__(self)	Iterator থেকে পরবর্তী item return করে।
+__contains__(self, item)	item in obj চেক করলে এটা চলে।
+__eq__(self, other)	obj1 == obj2 দিলে এটা চলে। Equal check।
+__ne__(self, other)	!= operator এর কাজ।
+__lt__(self, other)	< operator এর কাজ।
+__le__(self, other)	<= operator এর কাজ।
+__gt__(self, other)	> operator এর কাজ।
+__ge__(self, other)	>= operator এর কাজ।
+__add__(self, other)	+ operator এর কাজ।
+__sub__(self, other)	- operator এর কাজ।
+__mul__(self, other)	* operator এর কাজ।
+__truediv__(self, other)	/ operator এর কাজ।
+__floordiv__(self, other)	// operator এর কাজ।
+__mod__(self, other)	% operator এর কাজ।
+__pow__(self, other)	** operator এর কাজ।
+__abs__(self)	abs(obj) করলে এটা চলে।
+__neg__(self)	Unary minus (-obj)
+__pos__(self)	Unary plus (+obj)
+__bool__(self)	Object-এর truthiness (if obj:)
+__enter__(self)	Context Manager (with ব্লক) শুরু।
+__exit__(self, exc_type, exc_val, exc_tb)	Context Manager (with ব্লক) শেষ।
+__del__(self)	Destructor, object delete হওয়ার সময় চলে।
+__copy__(self)	copy.copy(obj) দিলে shallow copy।
+__deepcopy__(self, memo)	copy.deepcopy(obj) দিলে deep copy।
+✅ Extra কিছু জনপ্রিয় Special Methods:
+Method	কাজ
+__hash__(self)	Object hashable কিনা ঠিক করে।
+__format__(self, format_spec)	Custom format দেয় (f-string etc)।
+__slots__	Object-এর memory optimization এর জন্য।
+__getattr__(self, name)	অবজেক্টের attribute না পেলে এটা কল হয়।
+__setattr__(self, name, value)	Attribute সেট করলে চালু হয়।
+__delattr__(self, name)	Attribute delete করলে চলে।

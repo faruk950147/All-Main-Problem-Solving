@@ -1,0 +1,76 @@
+Decorators হলো Python-এর একটি শক্তিশালী ফিচার, যা তোমাকে একটা ফাংশনের কাজের আগে বা পরে অন্য কোন কাজ সহজেই যুক্ত করতে সাহায্য করে, ফাংশনটির মূল কোড না ছেড়ে।
+
+সহজ ভাষায়:
+Decorator হলো একটা ফাংশন যা অন্য একটা ফাংশনকে ইনপুট হিসেবে নিয়ে, তাকে নতুন কিছু behavior যোগ করে বা modify করে, তারপর সেটাকে return করে।
+
+কেন দরকার?
+ধরা যাক, তোমার অনেক ফাংশনে বারবার লগিং, টাইম মেজার করা, অথরাইজেশন চেক ইত্যাদি কাজ করতে হবে। তখন প্রতিটা ফাংশনে আলাদা করে সেই কোড লিখলে অনেক রিপিটিশন হবে। Decorator দিয়ে সেটা একবার লিখে অনেক ফাংশনে ব্যবহার করা যায়।
+
+উদাহরণ:
+python
+Copy
+Edit
+def decorator_func(original_func):
+    def wrapper_func():
+        print("কিছু কাজ করার আগে")
+        original_func()
+        print("কিছু কাজ করার পরে")
+    return wrapper_func
+
+@decorator_func
+def say_hello():
+    print("হ্যালো!")
+
+say_hello()
+আউটপুট:
+
+Copy
+Edit
+কিছু কাজ করার আগে
+হ্যালো!
+কিছু কাজ করার পরে
+এখানে কী হচ্ছে?
+decorator_func হলো decorator যা say_hello ফাংশনকে নিচ্ছে original_func হিসেবে।
+
+wrapper_func হলো নতুন ফাংশন যা say_hello এর আগে এবং পরে অতিরিক্ত কাজ করছে।
+
+@decorator_func লেখার মানে হলো, say_hello = decorator_func(say_hello)।
+
+Decorators এর সুবিধা
+কোড পুনরায় ব্যবহার করা যায়।
+
+কোড পরিষ্কার ও সুন্দর হয়।
+
+সহজেই ফাংশনের behavior পরিবর্তন করা যায়।
+
+ঠিক আছে! এখানে আরেকটা সহজ ও পরিষ্কার decorator উদাহরণ দিলাম, যাতে তুমি ভালো বুঝতে পারো।
+
+উদাহরণ — লগ মেসেজ দেওয়ার জন্য decorator:
+python
+Copy
+Edit
+def log_decorator(func):
+    def wrapper():
+        print(f"ফাংশন `{func.__name__}` চালু হলো।")
+        func()
+        print(f"ফাংশন `{func.__name__}` শেষ হলো।")
+    return wrapper
+
+@log_decorator
+def greet():
+    print("হ্যালো, কেমন আছো?")
+
+greet()
+আউটপুট:
+go
+Copy
+Edit
+ফাংশন `greet` চালু হলো।
+হ্যালো, কেমন আছো?
+ফাংশন `greet` শেষ হলো।
+কি হচ্ছে?
+log_decorator ফাংশন greet ফাংশনকে গ্রহণ করে।
+
+wrapper নামের ভিতরের ফাংশন greet চালানোর আগে এবং পরে লগ মেসেজ দেখায়।
+
+@log_decorator ব্যবহার করে greet ফাংশনের behavior পরিবর্তন করা হলো।

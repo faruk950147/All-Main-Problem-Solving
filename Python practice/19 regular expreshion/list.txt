@@ -1,0 +1,91 @@
++8801712345678    # Bangladesh
++919812345678     # India
++14155552671      # United States
++447911123456     # United Kingdom
++81312345678      # Japan
++33123456789      # France
++4915212345678    # Germany
++8613912345678    # China
++971501234567     # United Arab Emirates
++966501234567     # Saudi Arabia
++61412345678      # Australia
++5511987654321    # Brazil
++393331234567     # Italy
++27821234567      # South Africa
++551234567890     # Brazil (Landline)
++528123456789     # Mexico
++639171234567     # Philippines
++380631234567     # Ukraine
++905301234567     # Turkey
++353851234567     # Ireland
++46701234567      # Sweden
++4520123456       # Denmark
++358401234567     # Finland
++4720123456       # Norway
++41791234567      # Switzerland
++38640123456      # Slovenia
++385981234567     # Croatia
++37360123456      # Moldova
++359881234567     # Bulgaria
++37251234567      # Estonia
++37121234567      # Latvia
++37061234567      # Lithuania
++992900123456     # Tajikistan
++99361234567      # Turkmenistan
++994501234567     # Azerbaijan
++97688123456      # Mongolia
++9779812345678    # Nepal
++9607712345       # Maldives
++96550123456      # Kuwait
++96890123456      # Oman
++97433123456      # Qatar
++97333123456      # Bahrain
++962791234567     # Jordan
++9647712345678    # Iraq
++963944123456     # Syria
++96171123456      # Lebanon
++962781234567     # Palestine
++212612345678     # Morocco
++21620123456      # Tunisia
++213661234567     # Algeria
++254712345678     # Kenya
++256712345678     # Uganda
++255712345678     # Tanzania
++2348012345678    # Nigeria
++233201234567     # Ghana
++237671234567     # Cameroon
++250781234567     # Rwanda
++251911234567     # Ethiopia
++263771234567     # Zimbabwe
++27 82 123 4567   # South Africa
++66 81 234 5678   # Thailand
++84 91 234 5678   # Vietnam
++855 12 345 678   # Cambodia
++95 9 123 456789  # Myanmar
++62 812 3456 7890 # Indonesia
++60 12 345 6789   # Malaysia
++65 8123 4567     # Singapore
++82 10 1234 5678  # South Korea
++7 912 345 6789   # Russia
++380 67 123 4567  # Ukraine
++40 721 234 567   # Romania
++48 501 234 567   # Poland
++36 20 123 4567   # Hungary
++43 660 1234567   # Austria
++34 612 345 678   # Spain
++351 912 345 678  # Portugal
++32 491 23 45 67  # Belgium
++420 601 123 456  # Czech Republic
++421 901 123 456  # Slovakia
++386 41 123 456   # Slovenia
++372 5123 4567    # Estonia
++370 612 34567    # Lithuania
++371 291 23456    # Latvia
++998 90 123 4567  # Uzbekistan
++993 61 123456    # Turkmenistan
++996 700 123456   # Kyrgyzstan
++995 555 123456   # Georgia
++675 7012 3456    # Papua New Guinea
++679 912 3456     # Fiji
++682 71234        # Cook Islands
++64 21 123 4567   # New Zealand

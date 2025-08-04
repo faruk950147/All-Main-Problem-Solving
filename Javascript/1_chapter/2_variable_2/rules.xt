@@ -1,0 +1,94 @@
+JavaScript Variable Declaration Rules (ভ্যারিয়েবল ডিক্লারেশন নিয়ম)
+
+JavaScript-এ ভ্যারিয়েবল ঘোষণা করতে মূলত ৩টি কীওয়ার্ড ব্যবহার হয়:
+
+    var
+
+    let
+
+    const
+
+1. Variable naming rules (নামকরণ নিয়ম)
+
+    নাম অবশ্যই letter, underscore _ বা dollar sign $ দিয়ে শুরু হতে হবে।
+
+    সংখ্যা দিয়ে শুরু করা যাবে না।
+
+    স্পেস, হাইফেন, স্পেশাল ক্যারেক্টার ব্যবহার করা যাবে না।
+
+    JavaScript reserved keyword (যেমন if, for, let ইত্যাদি) ভ্যারিয়েবল নাম হিসেবে ব্যবহার করা যাবে না।
+
+    ক্যামেল কেস ব্যবহার করা ভালো অভ্যাস (myVariableName).
+
+Valid Examples:
+
+let userName;
+const $amount = 500;
+var _totalMarks;
+
+Invalid Examples:
+
+let 2user;     // ভুল
+var user-name; // ভুল
+const let = 10; // ভুল
+
+2. Scope Rules (সীমা নিয়ম)
+Keyword	Scope
+var	Function scope (একটি ফাংশনের ভিতর কাজ করে)
+let / const	Block scope (যে {} ব্লকের ভিতর ডিক্লেয়ার হয়েছে, শুধু সেখানে কাজ করে)
+
+function example() {
+  if (true) {
+    var a = 10; // var: function scoped
+    let b = 20; // let: block scoped
+    const c = 30; // const: block scoped
+  }
+  console.log(a); //  কাজ করবে
+  console.log(b); // ReferenceError
+  console.log(c); //  ReferenceError
+}
+
+3. Re-declaration (পুনরায় ঘোষণা)
+
+var x = 10;
+var x = 20;  // Allowed (var)
+
+let y = 10;
+// let y = 20;  Not allowed (let)
+
+const z = 30;
+// const z = 40;  Not allowed (const)
+
+4. Hoisting (উত্তোলন)
+
+    var: উপরে উঠে যায় কিন্তু undefined থাকে।
+
+    let/const: উপরে উঠে যায় কিন্তু TDZ (Temporal Dead Zone) থাকে। আগে ব্যবহার করলে ReferenceError হবে।
+
+console.log(a); // undefined
+var a = 5;
+
+console.log(b); // ReferenceError
+let b = 10;
+
+5. const - Must be initialized (const ডিক্লার করার সাথে সাথে মান দিতে হয়)
+
+const value = 100; // 
+
+const num; //  SyntaxError (Must initialize)
+
+6. Re-assignment Rule (পুনরায় মান দেয়া)
+
+let age = 20;
+age = 25; //  Allowed
+
+const pi = 3.14;
+pi = 3.15; //  TypeError (Not allowed)
+
+ Summary Table:
+Rule	var	let	const
+Scope	Function	Block	Block
+Hoisting	Yes (undefined)	Yes (TDZ)	Yes (TDZ)
+Redeclare	Allowed	 Not allowed	 Not allowed
+Reassign	Allowed	Allowed	 Not allowed
+Initialization at declaration	Optional	Optional	Mandatory

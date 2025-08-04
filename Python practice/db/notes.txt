@@ -1,0 +1,142 @@
+
+Python এর sqlite3 মডিউলের মাধ্যমে আপনি যেসব Database Methods / Functions / API ব্যবহার করতে পারেন, নিচে সবগুলো সুবিন্যস্তভাবে দেওয়া হলো, যাতে আপনি CRUD (Create, Read, Update, Delete) এবং অন্যান্য কাজ সহজে করতে পারেন।
+
+🔶 1. sqlite3.connect(database_name)
+কাজ: ডেটাবেসে সংযোগ স্থাপন করে
+
+python
+Copy
+Edit
+conn = sqlite3.connect('mydb.db')
+🔶 2. connection.cursor()
+কাজ: ডেটাবেজের সাথে কাজ করার জন্য cursor অবজেক্ট তৈরি করে
+
+python
+Copy
+Edit
+cursor = conn.cursor()
+🔶 3. cursor.execute(sql, parameters)
+কাজ: SQL কমান্ড execute করে
+
+python
+Copy
+Edit
+cursor.execute("SELECT * FROM table_name")
+🔶 4. cursor.executemany(sql, seq_of_parameters)
+কাজ: একাধিক ইনসার্ট বা আপডেট একসাথে করতে
+
+python
+Copy
+Edit
+data = [("Omar", 20), ("Rahim", 21)]
+cursor.executemany("INSERT INTO students (name, age) VALUES (?, ?)", data)
+🔶 5. cursor.fetchall()
+কাজ: সব rows রিটার্ন করে (list of tuples)
+
+python
+Copy
+Edit
+rows = cursor.fetchall()
+🔶 6. cursor.fetchone()
+কাজ: প্রথম row রিটার্ন করে
+
+python
+Copy
+Edit
+row = cursor.fetchone()
+🔶 7. cursor.fetchmany(size)
+কাজ: নির্দিষ্ট সংখ্যক rows রিটার্ন করে
+
+python
+Copy
+Edit
+rows = cursor.fetchmany(5)
+🔶 8. connection.commit()
+কাজ: ডেটাবেজে চূড়ান্তভাবে পরিবর্তন save করে
+
+python
+Copy
+Edit
+conn.commit()
+🔶 9. connection.rollback()
+কাজ: ভুল হলে ডেটা পূর্বাবস্থায় ফিরিয়ে নেয়
+
+python
+Copy
+Edit
+conn.rollback()
+🔶 10. connection.close()
+কাজ: ডেটাবেজ সংযোগ বন্ধ করে
+
+python
+Copy
+Edit
+conn.close()
+🔶 11. cursor.close()
+কাজ: Cursor বন্ধ করে
+
+python
+Copy
+Edit
+cursor.close()
+🔶 12. cursor.lastrowid
+কাজ: সর্বশেষ insert হওয়া row-এর ID
+
+python
+Copy
+Edit
+cursor.execute("INSERT INTO students (name, age) VALUES (?, ?)", ("Karim", 22))
+print(cursor.lastrowid)
+🔶 13. cursor.rowcount
+কাজ: কতটি row প্রভাবিত হয়েছে তা বলে
+
+python
+Copy
+Edit
+cursor.execute("DELETE FROM students WHERE age > 25")
+print(cursor.rowcount)
+🔶 14. sqlite3.connect(':memory:')
+কাজ: RAM-এ একটি অস্থায়ী ইন-মেমোরি ডেটাবেস তৈরি করে
+
+python
+Copy
+Edit
+conn = sqlite3.connect(':memory:')
+🔶 15. connection.total_changes
+কাজ: এই সংযোগে মোট কতটি পরিবর্তন হয়েছে তার সংখ্যা
+
+python
+Copy
+Edit
+print(conn.total_changes)
+🔶 16. sqlite3.version / sqlite3.sqlite_version
+কাজ: Python sqlite3 মডিউল ও SQLite engine-এর ভার্সন জানায়
+
+python
+Copy
+Edit
+import sqlite3
+print(sqlite3.version)
+print(sqlite3.sqlite_version)
+🎁 Extra: Table structure জানা (pragma)
+python
+Copy
+Edit
+cursor.execute("PRAGMA table_info(students)")
+print(cursor.fetchall())
+✅ Summary Table:
+Method	Description
+connect()	Connects to DB
+cursor()	Creates cursor
+execute()	Executes SQL
+executemany()	Executes many
+fetchall()	Fetch all rows
+fetchone()	Fetch one row
+fetchmany()	Fetch limited rows
+commit()	Save changes
+rollback()	Undo changes
+close()	Close DB
+lastrowid	Get last inserted ID
+rowcount	Get affected row count
+PRAGMA	Get table schema
+

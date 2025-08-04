@@ -1,0 +1,43 @@
+
+DSA (Data Structures and Algorithms) শেখার জন্য বাংলা রোডম্যাপ
+
+🔰 Step 1: Programming Language শিখে নিন
+ভাষা: Python / C++ / Java
+
+Step 2: Basic DSA Concepts
+1. Array – ইনডেক্স, ইনসার্ট, ডিলিট, সার্চ
+2. String – ম্যানিপুলেশন, রিভার্স, পালিনড্রোম
+3. Stack – LIFO, Balanced bracket
+4. Queue – FIFO, Circular Queue
+5. Linked List – Single, Double, Reverse
+
+Step 3: Tree and Recursion
+1. Recursion – ফাংশনের ভিতর ফাংশন (Factorial, Fibonacci)
+2. Tree – Binary Tree, BST, Traversals
+3. Heap – Priority Queue, Min/Max Heap
+
+Step 4: Graph & Searching/Sorting
+1. Graph – BFS, DFS, Dijkstra
+2. Sorting – Bubble, Merge, Quick
+3. Searching – Linear, Binary Search
+
+Step 5: Advanced DSA
+1. Hashing – HashMap, Frequency Count
+2. Dynamic Programming – Fibonacci, Knapsack
+3. Greedy Algorithm – Activity Selection
+4. Sliding Window – Subarray problems
+5. Two Pointers – Array/String problems
+
+Step 6: Competitive Programming শুরু করুন
+প্রতিদিন ১-৩টি প্রবলেম সলভ করুন:
+- LeetCode
+- Codeforces
+- GeeksForGeeks
+- HackerRank
+
+Bonus:
+- প্রতিটি টপিকের জন্য বাংলা নোটস ও উদাহরণ
+- DSA কোড + explanation
+- Django/Android প্রোজেক্টে DSA প্রয়োগ
+
+শুভকামনা!

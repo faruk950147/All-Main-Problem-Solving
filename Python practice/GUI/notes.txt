@@ -1,0 +1,65 @@
+SQLite হল একটি lightweight, built-in database engine, যা আপনি Python-এ কোনো external server ছাড়াই ব্যবহার করতে পারেন। Python-এ sqlite3 মডিউলটি built-in ভাবে আসে, তাই আলাদা করে কিছু install করতে হয় না।
+
+SQLite ব্যবহার করার জন্য ধাপগুলো:
+🔹 1. Database ফাইল তৈরি ও সংযোগ (connect):
+python
+Copy
+Edit
+import sqlite3
+
+# ডেটাবেজে সংযোগ (যদি না থাকে তবে এটি তৈরি করবে)
+conn = sqlite3.connect('mydatabase.db')
+
+# Cursor তৈরি
+cursor = conn.cursor()
+🔹 2. Table তৈরি করা:
+python
+Copy
+Edit
+cursor.execute('''
+CREATE TABLE IF NOT EXISTS students (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    age INTEGER
+)
+''')
+🔹 3. Data Insert করা:
+python
+Copy
+Edit
+cursor.execute("INSERT INTO students (name, age) VALUES (?, ?)", ("Omar", 20))
+conn.commit()  # ডেটা সংরক্ষণ নিশ্চিত করতে commit করতে হবে
+🔹 4. Data Read করা (SELECT):
+python
+Copy
+Edit
+cursor.execute("SELECT * FROM students")
+rows = cursor.fetchall()
+
+for row in rows:
+    print(row)
+🔹 5. Data Update করা:
+python
+Copy
+Edit
+cursor.execute("UPDATE students SET age = ? WHERE name = ?", (21, "Omar"))
+conn.commit()
+🔹 6. Data Delete করা:
+python
+Copy
+Edit
+cursor.execute("DELETE FROM students WHERE name = ?", ("Omar",))
+conn.commit()
+🔹 7. সংযোগ বন্ধ করা:
+python
+Copy
+Edit
+conn.close()
+ডেটাবেস ফাইল:
+উপরের কোডে "mydatabase.db" নামে একটি ফাইল তৈরি হবে যেখানে সব ডেটা সংরক্ষিত থাকবে। এটি আপনার project folder-এ পাওয়া যাবে।
+
+অতিরিক্ত সুবিধা:
+SQLite GUI tools (যেমন: DB Browser for SQLite) ব্যবহার করে .db ফাইল দেখতে পারেন।
+
+Python এ ORM ব্যবহার করতে চাইলে Django বা SQLAlchemy ব্যবহার করতে পারেন।
+

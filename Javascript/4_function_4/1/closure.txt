@@ -1,0 +1,3 @@
+let const use in closure not accessible global scope because of block scope
+let const in script scope in closure but not accessible global scope
+var use in closure accessible global scope because of function scope

@@ -1,0 +1,38 @@
+
+Closure হলো একটা programming concept, যা সাধারণত function আর variable scope নিয়ে কাজ করে।
+
+সোজা বাংলায় বললে:
+
+Closure হলো এমন একটা ফাংশন যা তার বাইরের একটা ফাংশনের ভেরিয়েবলগুলোর মান বা environment কে "মনে রেখে" কাজ করতে পারে, যদিও বাইরের ফাংশনের কাজ শেষ হয়ে গেছে।
+
+একটু বিশদে:
+যখন একটা ফাংশনের ভিতরে আরেকটা ফাংশন ডিফাইন করা হয়,
+
+এবং ভিতরের ফাংশনটি বাইরের ফাংশনের ভেরিয়েবলগুলো ব্যবহার করে,
+
+তখন ঐ ভিতরের ফাংশনটাকে closure বলা হয়।
+
+উদাহরণ (Python-এ):
+python
+Copy
+Edit
+def outer():
+    x = 10
+    def inner():
+        print(x)  # বাইরের ফাংশনের ভেরিয়েবল x ব্যবহার করছে
+    return inner
+
+func = outer()  # outer ফাংশন শেষ হলেও
+func()          # inner ফাংশন এখনো x = 10 স্মরণ রেখেছে, তাই 10 প্রিন্ট করবে
+এখানে inner ফাংশনটা closure কারণ এটা outer ফাংশনের x নামের ভেরিয়েবলকে স্মরণ রেখেছে।
+
+আরেকটু সহজ ভাবে:
+Closure = একটা ফাংশন + তার বাইরের ফাংশনের ভেরিয়েবলগুলো মেমোরি তে ধরে রাখা।
+
+ব্যবহার কোথায়?
+Data encapsulation বা private variables তৈরি করতে।
+
+Functional programming এ function factories বানাতে।
+
+Asynchronous programming এ callback function এ ব্যবহার হয়।
+

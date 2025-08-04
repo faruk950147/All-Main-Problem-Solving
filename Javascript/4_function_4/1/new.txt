@@ -1,0 +1,82 @@
+🔵 new কী?
+new একটি JavaScript keyword যা ব্যবহার করা হয় object তৈরি করতে constructor function বা class এর মাধ্যমে।
+
+🔧 কী কাজ?
+new মূলত ৪টি কাজ করে যখন আপনি কোনো constructor এর সাথে এটি ব্যবহার করেন:
+
+একটি নতুন খালি object তৈরি করে।
+
+সেই object-এর prototype সেট করে Constructor function-এর .prototype এর সঙ্গে।
+
+Constructor function-কে সেই object-এর context (i.e., this) দিয়ে call করে।
+
+যদি constructor কিছু return না করে, তাহলে সেই তৈরি করা object return করে।
+
+🔍 Syntax:
+javascript
+Copy
+Edit
+const objectName = new ConstructorFunction();
+অথবা ES6 class দিয়ে:
+
+javascript
+Copy
+Edit
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
+}
+
+const p1 = new Person("Omar");
+১: Constructor Function দিয়ে
+javascript
+Copy
+Edit
+function Car(model, year) {
+  this.model = model;
+  this.year = year;
+}
+
+const myCar = new Car("Toyota", 2020);
+console.log(myCar);  // { model: "Toyota", year: 2020 }
+২: Class দিয়ে (ES6+)
+javascript
+Copy
+Edit
+class Student {
+  constructor(name, roll) {
+    this.name = name;
+    this.roll = roll;
+  }
+}
+
+const s1 = new Student("Faruk", 101);
+console.log(s1);  // Student { name: "Faruk", roll: 101 }
+❓ কেন new ব্যবহার করব?
+Custom object তৈরি করতে (Constructor function বা class ব্যবহার করে)
+
+Prototype chain ঠিকভাবে set করতে
+
+Reusable object templates বানাতে (OOP style)
+
+বড় application structure-এর জন্য class/object-based design follow করতে
+
+যদি new ছাড়া call করি?
+javascript
+Copy
+Edit
+function Test(name) {
+  this.name = name;
+}
+
+const t = Test("Faruk");  // ⚠️ এখানে new নেই
+console.log(t);           // undefined
+console.log(name);        // "Faruk" global scope-এ চলে গেছে (ভুল)
+তাই new ছাড়া this global scope-এ চলে যায়। এটি bug তৈরি করতে পারে।
+
+বিষয়	ব্যাখ্যা
+new কি	JavaScript keyword
+কাজ	নতুন object তৈরি ও constructor কল করে
+কেন প্রয়োজন	Object-oriented design, reusable কোড ও নিরাপদ context-এর জন্য
+কখন ব্যবহার	Constructor function বা class দিয়ে নতুন instance তৈরি করার সময়

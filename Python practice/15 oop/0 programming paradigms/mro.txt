@@ -1,0 +1,62 @@
+Method Resolution Order (MRO) – Python এ কী?
+MRO (Method Resolution Order) বোঝায় কোন ক্রম অনুযায়ী Python multiple inheritance-
+
+class A:
+    def show(self):
+        print("I'm from class A")
+
+class B(A):
+    def show(self):
+        print("I'm from class B")
+
+class C(A):
+    def show(self):
+        print("I'm from class C")
+
+class D(B, C):  # Multiple Inheritance
+    pass
+
+obj = D()
+obj.show()
+🔍 Output:
+I'm from class B
+কেন class B-এর show() method এসেছে?
+Python D ক্লাসের মধ্যে method খুঁজে পায় না, তাই D → B → C → A এই order অনুসারে খোঁজে।
+এই order টাকেই বলে MRO (Method Resolution Order)।
+
+🔎 MRO দেখা যায় কিভাবে?
+python
+Copy
+Edit
+print(D.__mro__)
+Output:
+kotlin
+Copy
+Edit
+(<class '__main__.D'>, <class '__main__.B'>, <class '__main__.C'>, <class '__main__.A'>, <class 'object'>)
+⚙️ MRO ব্যবহার কবে গুরুত্বপূর্ণ?
+Multiple inheritance থাকলে কোন method আগে execute হবে, সেটা বোঝার জন্য
+
+super() ব্যবহারে কোন constructor/method কল হবে, সেটা ঠিকভাবে বুঝতে
+
+আরেকটি বাস্তব উদাহরণ (তোমার Hybrid উদাহরণ অনুযায়ী):
+python
+Copy
+Edit
+class Vehicle: pass
+class Car(Vehicle): pass
+class Truck(Vehicle): pass
+class ElectricCar(Car, Truck): pass
+
+print(ElectricCar.__mro__)
+Output:
+kotlin
+Copy
+Edit
+(<class '__main__.ElectricCar'>, <class '__main__.Car'>, <class '__main__.Truck'>, <class '__main__.Vehicle'>, <class 'object'>)
+সংক্ষেপে:
+MRO বোঝায় method/attribute খোঁজার লিনিয়ার ক্রম
+
+Python-এ দেখা যায়: ClassName.__mro__ বা ClassName.mro()
+
+এটি multiple বা hybrid inheritance এ খুব গুরুত্বপূর্ণ

@@ -1,0 +1,124 @@
+method in js/build in method.txt
+no type match
+if 5 == "5" true 
+type match
+if 5 === "5" false 
+
+
+JavaScript Common Methods (By Category)
+1: String Methods:
+Method	কাজ
+charAt()	নির্দিষ্ট index এ character return করে
+charCodeAt()	নির্দিষ্ট character এর Unicode return
+concat()	দুইটা string জোড়া দেয়া
+includes()	substring আছে কিনা check
+indexOf()	substring কোথায় আছে
+lastIndexOf()	শেষের দিক থেকে substring কোথায়
+replace()	substring replace করা
+slice()	substring কাটা
+split()	string কে array তে ভাগ করা
+substring()	substring return
+toLowerCase()	ছোট হাতের অক্ষর
+toUpperCase()	বড় হাতের অক্ষর
+trim()	ফাকা space কাটা
+
+2: Array Methods:
+Method	কাজ
+String() str = String("str")
+push()	array তে element যোগ
+pop()	শেষ element মুছে
+shift()	প্রথম element মুছে
+unshift()	প্রথমে element যোগ
+concat()	দুইটা array merge
+join()	array কে string বানানো
+slice()	নির্দিষ্ট portion নেয়া
+splice()	element যোগ/মুছে
+indexOf()	element কোথায় আছে
+lastIndexOf()	শেষের দিক থেকে element
+includes()	element আছে কিনা
+forEach()	প্রত্যেক element এর উপর loop
+map()	প্রতিটা element এর উপর operation
+filter()	কিছু element filter করা
+find()	প্রথম match
+findIndex()	প্রথম match index
+reduce()	সব element থেকে একটাই result
+some()	একটাও match করলে true
+every()	সব match করলে true
+sort()	সাজানো
+reverse()	উল্টানো
+3: Number Methods:
+Method	কাজ
+Number()  num = Number(123)
+toFixed()	নির্দিষ্ট দশমিক
+toString()	string এ convert
+parseInt()	integer parse
+parseFloat()	float parse
+isNaN()	NaN check
+Number.isInteger()	integer check
+Math Methods:
+Method	কাজ
+Math.abs()	absolute value
+Math.ceil()	উপরের পূর্ণসংখ্যা
+Math.floor()	নিচের পূর্ণসংখ্যা
+Math.round()	কাছের পূর্ণসংখ্যা
+Math.max()	সর্বোচ্চ
+Math.min()	সর্বনিম্ন
+Math.random()	0 থেকে 1 এর মধ্যে random
+Math.pow()	power
+Math.sqrt()	বর্গমূল
+4: Date Methods:
+Method	কাজ
+getDate()	তারিখ
+getDay()	সপ্তাহের দিন
+getFullYear()	বছর
+getHours()	ঘন্টা
+getMinutes()	মিনিট
+getSeconds()	সেকেন্ড
+getMilliseconds()	মিলিসেকেন্ড
+getMonth()	মাস
+getTime()	মিলিসেকেন্ড থেকে epoch
+setDate()	তারিখ সেট
+setFullYear()	বছর সেট
+setHours()	ঘন্টা সেট
+setMinutes()	মিনিট সেট
+5: Object Methods:
+Method	কাজ
+Object.keys()	object এর key list
+Object.values()	object এর value list
+Object.entries()	key-value array
+Object.assign()	object merge
+hasOwnProperty()	property আছে কিনা check
+6: JSON Methods:
+Method	কাজ
+JSON.stringify()	object কে string বানানো
+JSON.parse()	string কে object বানানো
+7: DOM Methods (Browser এ):
+Method	কাজ
+document.getElementById()	id দিয়ে element
+document.getElementsByClassName()	class দিয়ে element list
+document.getElementsByTagName()	tag দিয়ে element list
+document.querySelector()	CSS selector দিয়ে element
+document.querySelectorAll()	সব match element
+addEventListener()	event handle
+removeChild()	child remove
+appendChild()	child যোগ
+8: Event Methods:
+Method	কাজ
+preventDefault()	default behavior stop
+stopPropagation()	event bubbling বন্ধ
+9: Promise Methods (Asynchronous):
+Method	কাজ
+.then()	সফল হলে
+.catch()	error হলে
+.finally()	শেষেও
+10 Fetch API Methods (AJAX/HTTP):
+Method	কাজ
+fetch()	API call
+.then()	result পাওয়া
+.catch()	error handle
+11: Utility Methods:
+Method	কাজ
+setTimeout()	delay
+setInterval()	প্রতি কিছুক্ষণ পর পর
+clearTimeout()	timeout cancel
+clearInterval()

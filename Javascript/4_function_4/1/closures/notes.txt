@@ -1,0 +1,44 @@
+var এর বৈশিষ্ট্য (JavaScript):
+
+    Function Scoped:
+    var শুধু function scope-এ সীমাবদ্ধ থাকে। যদি তুমি var ব্যবহার করো কোনো function-এর ভিতরে, সেটা সেই function-এর বাইরের অংশে অ্যাক্সেস করা যাবে না।
+
+function test() {
+  var x = 10;
+  console.log(x); // 10
+}
+
+console.log(x); // ReferenceError: x is not defined
+
+Allow Redeclaration:
+একই স্কোপে বারবার var দিয়ে একই ভ্যারিয়েবল ডিক্লেয়ার করা যায়।
+
+var a = 5;
+var a = 10;
+console.log(a); // 10
+
+Hoisting (Variable hoisting):
+var দিয়ে ডিক্লেয়ার করা ভ্যারিয়েবল গুলো স্কোপের টপে উঠে যায় (hoist হয়)। তবে ইনিশিয়ালাইজড হয় না।
+
+console.log(b); // undefined (Error নয়, কারণ hoisted)
+var b = 20;
+
+আসলে এটা এমনভাবে কাজ করে:
+
+var b;
+console.log(b); // undefined
+b = 20;
+
+তুলনা let ও const এর সঙ্গে:
+বৈশিষ্ট্য	var	let	const
+Scope	Function Scope	Block Scope	Block Scope
+Redeclaration	✅ হ্যাঁ	❌ না	❌ না
+Hoisting	✅ হ্যাঁ (undefined)	✅ হ্যাঁ (TDZ*)	✅ হ্যাঁ (TDZ*)
+
+🧠 1. var, let, const – মূল পার্থক্য
+বৈশিষ্ট্য	var	let	const
+📦 Scope	✅ Function Scope	✅ Block Scope	✅ Block Scope
+♻️ Redeclaration	✅ Allowed	❌ Not Allowed	❌ Not Allowed
+🔄 Reassignment	✅ Allowed	✅ Allowed	❌ Not Allowed
+🪄 Hoisting	✅ Yes (Initialized as undefined)	✅ Yes (TDZ error if before declaration)	✅ Yes (TDZ error if before declaration)
+🧊 Constancy	❌ Not constant	✅ Constant	✅ Constant

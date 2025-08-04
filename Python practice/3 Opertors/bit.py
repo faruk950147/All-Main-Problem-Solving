@@ -1,0 +1,35 @@
+a=3
+b=5
+# print(a & b)
+# print(bin(a & b))
+# print(a|b)
+# print(bin(a | b))
+# print(a^b)
+# print(~a)
+# print(~b)
+# print(a<<b)
+# print(a>>b)
+
+# binary representation
+c = 0b0001
+d = 0b0010
+# print(type(c))
+# print(type(d))
+# print(c)
+# print(d)
+print(bin(c))
+print(bin(d))
+# print(c & d)
+# print(bin(c & d))
+# print(c | d)
+# print(bin(c | d))
+# print(c ^ d)
+# print(bin(c ^ d))
+# print(~c)
+# print(bin(~c))
+# print(~d)
+# print(bin(~d))
+# print(c << d)
+# print(bin(c << d))
+# print(c >> d)
+# print(bin(c >> d))

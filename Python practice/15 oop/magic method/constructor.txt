@@ -1,0 +1,49 @@
+Constructor হচ্ছে একটি special method/function, যেটা কোনো class থেকে object তৈরি করার সময় স্বয়ংক্রিয়ভাবে (automatically) কল হয়।
+Constructor-এর মাধ্যমে object তৈরি করার সময় initial value বা setup দেওয়া যায়।
+
+🔹 Constructor এর কাজ:
+Object তৈরি করার সময় initial value সেট করা
+
+Object creation এর সময় কোনো কাজ automatically করানো
+
+Class-এর instance তৈরি করার সময় setup/initialization
+
+🔹 কীভাবে constructor এর কাজ করে?
+    একটা class থেকে object তৈরি করার সময় কোনো কাজ automatically করানো
+
+
+Constructor-এর Characteristics (বৈশিষ্ট্য):
+🔢	বৈশিষ্ট্য (Characteristic)	ব্যাখ্যা (Explanation)
+1️⃣	Class-এর নামের মতো হয়	Constructor-এর নাম অবশ্যই class-এর নামের মতো হতে হয় (Java/C++)
+2️⃣	Return type থাকে না	Constructor-এর কোনো return type (যেমন: int, void) লেখা হয় না
+3️⃣	Object তৈরি হওয়ার সময় auto call হয়	যখনই object তৈরি হয়, constructor নিজে নিজেই চলে
+4️⃣	Initialization এর জন্য ব্যবহৃত	Object-এর ভিতরের ভ্যারিয়েবল বা property সেট করতে ব্যবহৃত হয়
+5️⃣	একাধিক constructor থাকতে পারে	Constructor overloading করা যায় (Java/C++)
+6️⃣	Static, final বা abstract হতে পারে না	Constructor কখনোই static বা final হয় না
+7️⃣	Inheritance-এ subclass constructor call করে	Inheritance ব্যবহার করলে superclass-এর constructor আগে call হয়
+
+
+python
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def show(self):
+        print(f"{self.name} is {self.age} years old")
+
+p = Person("John", 30)
+p.show()
+
+
+class Student:
+    def __init__(self, name, roll):
+        self.name = name     # object-এর name সেট হলো
+        self.roll = roll     # object-এর roll সেট হলো
+        print("Constructor auto called!")
+
+# object তৈরি করো
+s1 = Student("Omar", 101)  # Constructor এখানেই auto call হবে
+
+print(s1.name)  # Omar
+print(s1.roll)  # 101

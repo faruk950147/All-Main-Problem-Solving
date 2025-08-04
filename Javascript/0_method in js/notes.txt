@@ -1,0 +1,26 @@
+0: 
+==	"Value match করলেই হবে, টাইপ নিয়ে ভাবি না"
+===	"Value আর Type দুইটাই match করতে হবে"
+
+1: JavaScript-এ == এবং === এর মধ্যে পার্থক্য (Bangla Explanation):
+	== (Double Equals)	=== (Triple Equals)
+নাম	Loose Equality (Type Conversion করে compare করে)	Strict Equality (Type Conversion করে না)
+টাইপ চেক	টাইপ একই না হলেও compare করে	টাইপ অবশ্যই একই হতে হবে
+Value চেক	Value same হলেই true	টাইপ + Value দুইটাই same হলে true
+Type Conversion	হ্যাঁ (Automatically Type Conversion করে)	না (Type Conversion করে না)
+2: উদাহরণ (Example):
+
+console.log(5 == '5');     // 👉 true (কারণ টাইপ পরিবর্তন করে numeric compare করে)
+console.log(5 === '5');    // 👉 false (কারণ একটা number, আরেকটা string)
+
+console.log(null == undefined);   // 👉 true (Loose equality তে special case)
+console.log(null === undefined);  // 👉 false (Strict equality তে type mismatch)
+
+console.log(0 == false);   // 👉 true (Type conversion করে)
+console.log(0 === false);  // 👉 false (একটা number, আরেকটা boolean)
+
+3: কবে কোনটা ব্যবহার করবে?
+
+4: Best Practice:
+সবসময় === (Triple Equals) ব্যবহার করা ভালো।
+কারণ এটা Type conversion করে না, তাই bug হওয়ার সম্ভাবনা কম।
