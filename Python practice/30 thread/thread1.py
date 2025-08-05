@@ -42,28 +42,52 @@
 # Thread synchronization is a technique used to control access to shared resources in a multi-threaded environment.
 # Thread synchronization is used to prevent race conditions and ensure data consistency.
 # Thread synchronization is used to prevent race conditions and ensure data consistency.
+# all attributes of thread
+# name
+# is_alive
+# daemon
+# ident
+# isDaemon
 
+# methods
+# getName
+# setName
+# run
+# start
+# join
 import threading
 
-# current_thread = threading.current_thread().name
-# print(current_thread) 
+# print(threading.current_thread().name)
+# print(threading.current_thread().is_alive())
+# print(threading.current_thread().daemon)
+# print(threading.current_thread().ident)
+# print(threading.current_thread().getName())
+# print(threading.current_thread().setName("MyThread"))
+# print(threading.current_thread().run())
+# print(threading.current_thread().start())
+# print(threading.current_thread().join())
 
-# def display(n):
-#     for i in range(10):
-#         print(n)
+def display(n):
+    for i in range(10):
+        print(n)
         
-# thread1 = threading.Thread(target=display, args=("Hello",))
-# thread2 = threading.Thread(target=display, args=("World",))
+thread1 = threading.Thread(target=display, args=("Hello",)) #(5,"Hello")
+thread2 = threading.Thread(target=display, args=("World",)) #(5,"World")
+
+thread1.start()
+thread2.start()
+
+# def display(n, msg):
+#     for i in range(10):
+#         print(n, msg)
+        
+# thread1 = threading.Thread(target=display, args=("Hello", "Welcome"))
+# thread2 = threading.Thread(target=display, args=("World", "Welcome"))
+# t3 = threading.Thread(target=display, kwargs={"n": "Python"})
+# t4 = threading.Thread(target=display, kwargs={"n": "Thread"})
 
 # thread1.start()
 # thread2.start()
 
-def display(n, msg):
-    for i in range(10):
-        print(n, msg)
-        
-thread1 = threading.Thread(target=display, args=("Hello", "Welcome"))
-thread2 = threading.Thread(target=display, args=("World", "Welcome"))
-
-thread1.start()
-thread2.start()
+# thread1.join()
+# thread2.join()
