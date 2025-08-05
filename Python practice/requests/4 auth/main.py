@@ -1,7 +1,7 @@
 import requests
 
 def auth(url, data):
-    response = requests.get(url, data)
+    response = requests.post(url, data)
     return response.json()
 
 # url = "https://httpbin.org/post"
