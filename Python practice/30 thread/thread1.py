@@ -56,7 +56,7 @@
 # start
 # join
 import threading
-
+import time
 # print(threading.current_thread().name)
 # print(threading.current_thread().is_alive())
 # print(threading.current_thread().daemon)
@@ -68,15 +68,18 @@ import threading
 # print(threading.current_thread().join())
 
 def display1(n):
-    for i in range(10):
-        print(n)
+    for i in range(5):
+        print("Videos uploaded")
+        time.sleep(1)
+        
         
 
 
 def display2(n, msg):
-    for i in range(10):
+    for i in range(5):
         print(n, msg)
-        
+        time.sleep(1)   
+                
 thread1 = threading.Thread(target=display2, args=("Hello", "Welcome"))
 thread2 = threading.Thread(target=display2, args=("World", "Welcome"))
 t3 = threading.Thread(target=display1, kwargs={"n": "Python"})
@@ -90,3 +93,6 @@ t3.start()
 t3.join()
 t4.start()
 t4.join()
+
+for i in range(5):
+    print(i)
