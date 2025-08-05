@@ -1,11 +1,15 @@
 import requests
 
-url = "https://httpbin.org/post"
-data = {
-    "username": "omar",
-    "password": "1234"
-}
+def auth(url, data):
+    response = requests.get(url, data)
+    return response.json()
 
-response = requests.post(url, data=data)
+# url = "https://httpbin.org/post"
+# data = {
+#     "username": "omar",
+#     "password": "1234"
+# }
 
-print(response.text)
+# response = requests.post(url, data=data)
+
+# print(response.text)
