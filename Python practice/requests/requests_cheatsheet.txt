@@ -1,0 +1,77 @@
+
+Python requests লাইব্রেরির গুরুত্বপূর্ণ Method, Attribute এবং Function গুলো:
+
+১. Common HTTP Methods (Functions):
+------------------------------------
+requests.get(url)
+requests.post(url, data={})
+requests.put(url, data={})
+requests.delete(url)
+requests.head(url)
+requests.options(url)
+requests.patch(url, data={})
+
+২. Important Parameters:
+-------------------------
+params={}         # URL query parameters
+data={}           # Form data
+json={}           # JSON data
+headers={}        # Custom HTTP headers
+cookies={}        # Cookies
+auth=()           # Authentication (tuple)
+timeout=()        # Timeout in seconds
+allow_redirects=True
+proxies={}        # Proxy dictionary
+
+৩. Response Object Attributes & Methods:
+----------------------------------------
+response = requests.get(url)
+response.status_code      # HTTP status code (200, 404, etc.)
+response.text             # Response content as string
+response.content          # Response content as bytes
+response.json()           # Parse JSON response
+response.headers          # Dictionary of response headers
+response.cookies          # Cookies from the server
+response.url              # Final URL after redirection
+response.ok               # True if status_code < 400
+response.reason           # Reason phrase (e.g., "OK")
+response.elapsed          # Time taken for the request
+
+৪. Session Object Methods:
+--------------------------
+s = requests.Session()
+s.get(url)
+s.post(url, data={})
+s.headers.update({...})
+s.cookies.set(...)
+s.close()
+
+৫. Exceptions (Error Handling):
+-------------------------------
+requests.exceptions.RequestException
+requests.exceptions.Timeout
+requests.exceptions.ConnectionError
+requests.exceptions.HTTPError
+requests.exceptions.URLRequired
+requests.exceptions.TooManyRedirects
+
+৬. Utility Functions:
+---------------------
+requests.utils.get_encodings_from_content()
+requests.utils.dict_from_cookiejar()
+requests.utils.cookiejar_from_dict()
+
+৭. Interactive Help (শুধু দেখতে):
+----------------------------------
+import requests
+dir(requests)
+help(requests)
+
+সংক্ষেপে:
+-----------
+- HTTP Methods: get, post, put, delete, etc.
+- Parameters: headers, data, json, params, timeout
+- Response: status_code, text, json(), headers
+- Session: Session object methods
+- Exceptions: Error classes
+- Utils: Cookie/encoding tools
