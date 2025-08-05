@@ -14,9 +14,7 @@ class VideoUploader(threading.Thread):
 list1 = ["Python programming", "Data Science", "Machine Learning", "Artificial Intelligence", "Deep Learning"]
 
 for video in list1:
-    time.sleep(1)
     VideoUploader(video).start()
-    time.sleep(3)
     VideoUploader(video).join()
 
 # def upload_video(video):
