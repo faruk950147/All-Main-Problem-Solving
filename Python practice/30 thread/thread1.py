@@ -67,27 +67,26 @@ import threading
 # print(threading.current_thread().start())
 # print(threading.current_thread().join())
 
-def display(n):
+def display1(n):
     for i in range(10):
         print(n)
         
-thread1 = threading.Thread(target=display, args=("Hello",)) #(5,"Hello")
-thread2 = threading.Thread(target=display, args=("World",)) #(5,"World")
+
+
+def display2(n, msg):
+    for i in range(10):
+        print(n, msg)
+        
+thread1 = threading.Thread(target=display2, args=("Hello", "Welcome"))
+thread2 = threading.Thread(target=display2, args=("World", "Welcome"))
+t3 = threading.Thread(target=display1, kwargs={"n": "Python"})
+t4 = threading.Thread(target=display1, kwargs={"n": "Thread"})
 
 thread1.start()
+thread1.join()
 thread2.start()
-
-# def display(n, msg):
-#     for i in range(10):
-#         print(n, msg)
-        
-# thread1 = threading.Thread(target=display, args=("Hello", "Welcome"))
-# thread2 = threading.Thread(target=display, args=("World", "Welcome"))
-# t3 = threading.Thread(target=display, kwargs={"n": "Python"})
-# t4 = threading.Thread(target=display, kwargs={"n": "Thread"})
-
-# thread1.start()
-# thread2.start()
-
-# thread1.join()
-# thread2.join()
+thread2.join()
+t3.start()
+t3.join()
+t4.start()
+t4.join()

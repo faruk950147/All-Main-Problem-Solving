@@ -26,4 +26,3 @@ class Example(threading.Thread):
 exp = Example()
 t1 = threading.Thread(target=exp.display)
 t1.start()
-t1.join()
