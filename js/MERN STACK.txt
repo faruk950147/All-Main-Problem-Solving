@@ -1,0 +1,68 @@
+MERN Stack হচ্ছে একটি জনপ্রিয় Full Stack Web Development টেকনোলজি স্ট্যাক, যেটি মূলত চারটি জাভাস্ক্রিপ্ট ভিত্তিক টেকনোলজির সমন্বয়ে গঠিত। "MERN" নামটি এসেছে নিচের চারটি টেকনোলজির আদ্যক্ষর থেকে:
+
+MERN Stack-এর পূর্ণরূপ:
+অক্ষর	টেকনোলজি	ব্যাখ্যা
+M	MongoDB	একটি NoSQL ডেটাবেজ, যেটি JSON-এর মতো ডেটা স্টোর করে (Document-based DB)।
+E	Express.js	একটি Lightweight ওয়েব ফ্রেমওয়ার্ক যা Node.js-এর উপর চলে এবং API তৈরি ও সার্ভার হ্যান্ডলিং সহজ করে।
+R	React.js	ফ্রন্টএন্ড লাইব্রেরি, ইউজার ইন্টারফেস তৈরি করার জন্য ব্যবহৃত হয়। Component-based architecture ব্যবহার করে।
+N	Node.js	একটি জাভাস্ক্রিপ্ট রানটাইম এনভায়রনমেন্ট যা সার্ভার-সাইড কোড রান করতে পারে।
+
+MERN Stack দিয়ে কী কী করা যায়?
+Single Page Applications (SPA)
+
+Dynamic Web Apps
+
+Real-Time Applications (like Chat apps)
+
+RESTful API Development
+
+E-commerce Sites
+
+Dashboards and Admin Panels
+
+MERN Stack Workflow:
+React (Frontend):
+
+ইউজার ইন্টারফেস তৈরি করে।
+
+ইউজারের থেকে ইনপুট নেয় এবং ব্যাকএন্ডে (API) রিকোয়েস্ট পাঠায়।
+
+Express + Node (Backend):
+
+API তৈরি করে এবং HTTP রিকোয়েস্ট হ্যান্ডল করে।
+
+ডেটাবেইজ (MongoDB) থেকে ডেটা ফেচ করে বা সংরক্ষণ করে।
+
+MongoDB (Database):
+
+সমস্ত ডেটা (user info, product, comments ইত্যাদি) JSON ডকুমেন্ট আকারে স্টোর করে।
+
+MERN Stack-এর সুবিধা:
+Complete JavaScript Stack: ফ্রন্টএন্ড থেকে ব্যাকএন্ড, সবকিছু জাভাস্ক্রিপ্টে।
+
+High Performance & Scalability
+
+Large Community Support
+
+Open Source Technologies
+
+শিখতে হলে কী জানা লাগবে?
+HTML, CSS, JavaScript
+React.js (Component, Props, Hooks, Routing)
+Node.js Basics
+Express.js Routing & Middleware
+MongoDB & Mongoose (ODM)
+REST API Concept
+JSON, Fetch/Axios
+Deployment (e.g., Render, Vercel, Railway)
+
+MERN Stack উদাহরণ প্রজেক্ট:
+Blog Website
+
+Task Manager
+
+E-commerce Website
+
+Social Media Clone
+
+Chat App with Socket.io
