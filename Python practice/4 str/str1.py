@@ -19,6 +19,13 @@
 # step index 1 missing
 # print(str1[0:5:2]) # positive index and 0 to 5 with step index 2
 # print(str1[0:5:1]) # positive index and 0 to 5 with step index 1
+# print(str1[:5]) # missing step output Hello
+# print(str1[:5:1]) # missing step 1 output Hello
+# print(str1[:5:2]) # missing step 2 output Hlo
+# # missing end step
+# print(str1[5:]) # missing step output World
+# print(str1[5:1]) # when start is greater than end it return empty string
+# print(str1[5:2]) # when start is greater than end it return empty string
 # # reverse
 # print(str1[::-1])
 str1 = "Hello World"
@@ -32,6 +39,13 @@ print(str1.sort(reverse=True))
 # print(str1[::-1]) # reverse string
 # print(str1[::2]) # step 2
 # print(str1[:5] + "Python" + str1[6:]) # index 0 to 4 + "Python" + index 6 to end
+# print(str1[:5]) # missing step output Hello
+# print(str1[:5:1]) # missing step 1 output Hello
+# print(str1[:5:2]) # missing step 2 output Hlo
+# # missing end step
+# print(str1[5:]) # missing step output World
+# print(str1[5:1]) # when start is greater than end it return empty string
+# print(str1[5:2]) # when start is greater than end it return empty string
 
 # string methods
 # print(str1.ljust(20, "*")) # left justify
