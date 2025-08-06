@@ -8,3 +8,18 @@ def add(a, b):
     return a + b
 print(callable(add))
 print(add(1, 2))
+
+# Usage: Callable objects
+
+class Add:
+    def __init__(self, a, b):
+        self.a = a
+        self.b = b
+    def __call__(self, *args, **kwargs):
+        return self.a + self.b + args[0] + kwargs["c"] + kwargs["d"]
+
+add = Add(1, 2)
+print(callable(add))
+print(add(1, c=2, d=3))
+
+# Usage: Callable objects
