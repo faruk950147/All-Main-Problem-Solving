@@ -18,7 +18,7 @@
 #     lst = [1, 2, 3, 4, 5]
 #     print("Before search:", lst)
 #     target = 3
-#     print("After search:", binary_search(lst, target))
+#     print("After search of index:", binary_search(lst, target))
 
 
 def binary_search(lst, target):
@@ -37,4 +37,4 @@ if __name__ == "__main__":
     lst = [1, 2, 3, 4, 5]
     print("Before search:", lst)
     target = 3
-    print("After search:", binary_search(lst, target))
+    print("After search of index:", binary_search(lst, target))

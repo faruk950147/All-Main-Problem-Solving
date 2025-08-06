@@ -11,7 +11,7 @@ if __name__ == "__main__":
     lst = [1, 2, 3, 4, 5]
     print("Before search:", lst)
     target = 3
-    print("After search:", linear_search(lst, target))
+    print("After search of index:", linear_search(lst, target))
 
 # def linear_search(lst, target):
 #     lst = len(lst)
@@ -26,4 +26,4 @@ if __name__ == "__main__":
 #     lst = [1, 2, 3, 4, 5]
 #     print("Before search:", lst)
 #     target = 3
-#     print("After search:", linear_search(lst, target))
+#     print("After search of index:", linear_search(lst, target))
