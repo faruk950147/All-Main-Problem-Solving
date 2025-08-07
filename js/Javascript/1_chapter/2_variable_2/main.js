@@ -110,3 +110,39 @@
 // console.log("Value of x: " + x);
 // console.log("Value of y: " + y); 
 // console.log("Value of z: " + z);
+// ************************** valid variable name *************************
+// let $name = "John";
+// console.log($name);
+
+// ************************** valid variable name *************************
+// let _name = "John";
+// console.log(_name);
+
+// ************************** valid variable name *************************
+// let name_ = "John";
+// console.log(name_);
+
+// ************************** valid variable name *************************
+// let name1 = "John";
+// console.log(name1);
+
+// ************************** valid variable name *************************
+// let name_1 = "John";
+// console.log(name_1);
+
+// ************************** valid variable name *************************
+// let name_1_ = "John";
+// console.log(name_1_);
+
+// ************************** invalid variable name *************************
+// let 1name = "John";
+// console.log(1name);
+// ************************** invalid variable name *************************
+// let name-1 = "John";
+// console.log(name-1);
+// ************************** invalid variable name *************************
+// let name 1 = "John";
+// console.log(name 1);
+// ************************** invalid variable name *************************
+// let name 1 = "John";
+// console.log(name 1);

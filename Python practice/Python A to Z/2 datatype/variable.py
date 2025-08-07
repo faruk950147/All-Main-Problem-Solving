@@ -245,3 +245,96 @@ print(student_age10)
 print(student_passed10)
 # output
 # True
+
+# 13. variable name should not be a built-in class.   
+student_name11 = "Alice"
+student_roll11 = 10
+student_age11 = 20.5
+student_passed11 = True
+
+print(student_name11)
+# output
+# Alice
+print(student_roll11)
+# output
+# 10
+print(student_age11)
+# output
+# 20.5
+print(student_passed11)
+# output
+# True
+
+# 14. variable name should not be a built-in exception.   
+student_name12 = "Alice"
+student_roll12 = 10
+student_age12 = 20.5
+student_passed12 = True
+
+print(student_name12)
+# output
+# Alice
+print(student_roll12)
+# output
+# 10
+print(student_age12)
+# output
+# 20.5
+print(student_passed12)
+# output
+# True
+
+# 15. variable name should not be a built-in constant.   
+student_name13 = "Alice"
+student_roll13 = 10
+student_age13 = 20.5
+student_passed13 = True
+
+print(student_name13)
+# output
+# Alice
+print(student_roll13)
+# output
+# 10
+print(student_age13)
+# output
+# 20.5
+print(student_passed13)
+# output
+# True
+
+#  ========================== valid variable name =========================
+
+# 1. variable name should be in lower case.
+# 2. variable name should be in snake case.
+# 3. variable name should be in camel case.
+# 4. variable name should be meaningful.
+# 5. variable name should be unique.
+# 6. variable name should not start with a number.
+# 7. variable name should not be a keyword.
+# 8. variable name should not have special characters.
+# 9. variable name should not have spaces.
+# 10. variable name should not have reserved keywords.
+# 11. variable name should not be a built-in function.  
+# 12. variable name should not be a built-in module.   
+# 13. variable name should not be a built-in class.   
+# 14. variable name should not be a built-in exception.   
+# 15. variable name should not be a built-in constant.   
+
+#  ========================== invalid variable name =========================
+
+# 1. variable name should be in lower case.
+# 2. variable name should be in snake case.
+# 3. variable name should be in camel case.
+# 4. variable name should be meaningful.
+# 5. variable name should be unique.
+# 6. variable name should not start with a number.
+# 7. variable name should not be a keyword.
+# 8. variable name should not have special characters.
+# 9. variable name should not have spaces.
+# 10. variable name should not have reserved keywords.
+# 11. variable name should not be a built-in function.  
+# 12. variable name should not be a built-in module.   
+# 13. variable name should not be a built-in class.   
+# 14. variable name should not be a built-in exception.   
+# 15. variable name should not be a built-in constant.   
