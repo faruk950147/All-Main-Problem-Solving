@@ -17,6 +17,59 @@ releaselist = [
     ('Python 3.13', 'Coming Oct 2024', 'Pre-release', 'removing deprecated features')
 ]
 
- 
+cursor = connection.cursor() # create cursor
+
+# create table  
+cursor.execute('''
+    CREATE TABLE IF NOT EXISTS python_releases (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    version TEXT NOT NULL,
+    date TEXT NOT NULL,
+    status TEXT NOT NULL,
+    features TEXT NOT NULL
+)
+''')
+
+# insert data
+for release in releaselist:
+    cursor.execute('''
+    INSERT INTO python_releases (version, date, status, features)
+    VALUES (?, ?, ?, ?)
+''', release)
+
+connection.commit() # save changes
+
+# fetch data
+cursor.execute('''
+    SELECT * FROM python_releases
+''')
+
+rows = cursor.fetchall()
+
+for row in rows:
+    print(row)
+
+# update data
+cursor.execute('''
+    UPDATE python_releases SET status = 'Stable' WHERE version = 'Python 3.11'
+''')
+connection.commit()
+
+# delete data
+cursor.execute('''
+    DELETE FROM python_releases WHERE version = 'Python 2.7'
+''')
+connection.commit()
+
+# fetch data
+cursor.execute('''
+    SELECT * FROM python_releases
+''')
+
+rows = cursor.fetchall()
+
+print("\nUpdated Data:")
+for row in rows:
+    print(row)  
 
 connection.close() # close database
