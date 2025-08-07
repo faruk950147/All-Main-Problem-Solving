@@ -1,0 +1,68 @@
+আপনি যদি Python দিয়ে MySQL ডাটাবেইস ব্যবহার করতে চান এবং এটি বাংলা ভাষায় শিখতে চান, তাহলে নিচে ধাপে ধাপে নির্দেশনা দেওয়া হলো:
+
+Python দিয়ে MySQL ব্যবহার করার ধাপসমূহ (বাংলা ভাষায়)
+1. প্রয়োজনীয় লাইব্রেরি ইন্সটল করা
+Python থেকে MySQL ডাটাবেইসে কানেক্ট করার জন্য mysql-connector-python বা PyMySQL ব্যবহার করা হয়।
+
+ইন্সটল করার জন্য টার্মিনালে নিচের কমান্ড দিন:
+
+bash
+Copy
+Edit
+pip install mysql-connector-python
+2. ডাটাবেইসে কানেকশন স্থাপন
+python
+Copy
+Edit
+import mysql.connector
+
+mydb = mysql.connector.connect(
+  host="localhost",        # আপনার সার্ভারের ঠিকানা (localhost হলে লোকাল মেশিন)
+  user="yourusername",     # ডাটাবেইস ইউজারনেম
+  password="yourpassword", # ডাটাবেইস পাসওয়ার্ড
+  database="yourdatabase"  # যে ডাটাবেইস ব্যবহার করবেন
+)
+
+print("সংযোগ সফল হয়েছে!")
+3. টেবিল তৈরি করা
+python
+Copy
+Edit
+mycursor = mydb.cursor()
+
+mycursor.execute("""
+CREATE TABLE students (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255),
+    age INT
+)
+""")
+
+print("টেবিল তৈরি হয়েছে।")
+4. ডেটা ইনসার্ট করা
+python
+Copy
+Edit
+sql = "INSERT INTO students (name, age) VALUES (%s, %s)"
+val = ("রহিম", 20)
+
+mycursor.execute(sql, val)
+mydb.commit()
+
+print(mycursor.rowcount, "টি রেকর্ড যোগ হয়েছে।")
+5. ডেটা রিড/পড়ানো
+python
+Copy
+Edit
+mycursor.execute("SELECT * FROM students")
+
+result = mycursor.fetchall()
+
+for row in result:
+    print(row)
+সংক্ষেপে:
+কাজ	কোড
+কানেক্ট করা	mysql.connector.connect()
+টেবিল তৈরি	CREATE TABLE
+ডেটা ইনসার্ট	INSERT INTO
+ডেটা পড়া	SELECT * FROM
