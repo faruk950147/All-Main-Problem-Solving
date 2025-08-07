@@ -1,0 +1,96 @@
+
+Kotlin কোড উদাহরণ ও ব্যাখ্যা (বাংলায়)
+---------------------------------------
+
+১. Hello World (Playground/Console)
+------------------------------------
+fun main() {
+    println("Hello, Kotlin!")
+}
+ব্যাখ্যা: এটি Kotlin-এ একটি বেসিক মেইন ফাংশন যা কনসোলে "Hello, Kotlin!" প্রিন্ট করে।
+
+২. ভ্যারিয়েবল ঘোষণা
+----------------------
+val name: String = "Rahim"
+var age: Int = 22
+
+ব্যাখ্যা:
+- val → ইমিউটেবল (final), মান পরিবর্তন করা যায় না
+- var → মিউটেবল, মান পরিবর্তনযোগ্য
+
+৩. শর্ত (if-else)
+-------------------
+val number = 10
+if (number % 2 == 0) {
+    println("Even")
+} else {
+    println("Odd")
+}
+
+ব্যাখ্যা: এই কোডটি একটি সংখ্যা জোড় না বিজোড় তা নির্ণয় করে।
+
+৪. ফাংশন ব্যবহার
+-----------------
+fun add(a: Int, b: Int): Int {
+    return a + b
+}
+
+println(add(5, 3)) // Output: 8
+
+৫. ক্লাস ও অবজেক্ট
+-------------------
+class Person(val name: String, var age: Int) {
+    fun introduce() {
+        println("Hi, I'm $name and I'm $age years old.")
+    }
+}
+
+val p = Person("Karim", 25)
+p.introduce()
+
+৬. Android Activity (Basic)
+-----------------------------
+// MainActivity.kt (Android)
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        println("Welcome to Android with Kotlin")
+    }
+}
+
+৭. SpringBoot Starter (Kotlin)
+-------------------------------
+@SpringBootApplication
+class MyApp
+
+fun main(args: Array<String>) {
+    runApplication<MyApp>(*args)
+}
+
+ব্যাখ্যা: Kotlin দিয়েও Spring Boot অ্যাপ্লিকেশন শুরু করা যায়।
+
+৮. লুপ (for loop)
+-------------------
+val items = listOf("Apple", "Banana", "Orange")
+for (item in items) {
+    println(item)
+}
+
+৯. নাল সেফ অপারেটর (Null Safety)
+----------------------------------
+var name: String? = null
+println(name?.length) // Output: null
+
+ব্যাখ্যা: `?` অপারেটর দিয়ে Kotlin-এ null pointer exception এড়ানো যায়।
+
+১০. ডেটা ক্লাস (Data Class)
+-----------------------------
+data class User(val id: Int, val name: String)
+
+val user1 = User(1, "Tania")
+println(user1)
+
+শেষ কথা:
+---------
+Kotlin সহজ, শক্তিশালী ও আধুনিক প্রোগ্রামিং ল্যাঙ্গুয়েজ। Android, Web এবং Server-side development-এ এটি দ্রুত জনপ্রিয়তা পাচ্ছে।

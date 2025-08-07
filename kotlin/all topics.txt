@@ -1,0 +1,138 @@
+Kotlin All Topics
+🟢 1. Kotlin পরিচিতি
+ইতিহাস, JetBrains, JVM, Multiplatform
+
+Android ও Backend ডেভেলপমেন্টে ব্যবহার
+
+🟢 2. Variables (ভ্যারিয়েবল)
+val (immutable) vs var (mutable)
+
+টাইপ নির্ধারণ: Int, String, Boolean ইত্যাদি
+
+🟢 3. Data Types
+Numbers: Int, Long, Double, Float
+
+Characters: Char
+
+Boolean: true, false
+
+🟢 4. String Handling
+String Templates ($name)
+
+Multiline Strings ("""text""")
+
+String Functions: length, toUpperCase() ইত্যাদি
+
+🟢 5. Conditional Statements
+if, else, else if
+
+when (Switch case-এর বিকল্প)
+
+🟢 6. Loops (লুপ)
+for, while, do-while
+
+Range (1..5)
+
+Loop with index (for ((i, value) in list.withIndex()))
+
+🟢 7. Functions (ফাংশন)
+Regular Functions
+
+Default Arguments
+
+Named Arguments
+
+Lambda Functions
+
+🟢 8. Null Safety
+Nullable Types: String?
+
+?., !!, ?: (Elvis operator)
+
+🟢 9. Collections
+List, Set, Map
+
+Mutable vs Immutable collections
+
+Iteration techniques
+
+🟢 10. Object-Oriented Concepts
+Class, Object, Constructor
+
+Inheritance, open, override
+
+Interface
+
+Abstract Class
+
+🟢 11. Data Classes
+data class User(val id: Int, val name: String)
+
+Auto-generated: equals(), hashCode(), toString()
+
+🟢 12. Enum Class
+Constant values with optional properties & methods
+
+🟢 13. Sealed Classes
+Restricted class hierarchies (used in when)
+
+🟢 14. Exception Handling
+try, catch, finally, throw
+
+🟢 15. Extensions
+Extension Functions
+
+Extension Properties
+
+🟢 16. Higher-Order Functions
+Functions as parameters or return values
+
+Common: map, filter, forEach
+
+🟢 17. Lambda Expressions
+{ a, b -> a + b }
+
+Used in functional programming
+
+🟢 18. Scope Functions
+let, run, with, apply, also
+
+Each has specific use-cases
+
+🟢 19. Coroutines (Async Programming)
+suspend, launch, async, delay()
+
+Structured concurrency
+
+🟢 20. Annotations
+@JvmStatic, @SerializedName, etc.
+
+🟢 21. Generics
+Type-safe reusable components: <T>
+
+🟢 22. Kotlin Standard Library
+kotlin.collections, kotlin.text, etc.
+
+🟢 23. Kotlin DSL (Domain Specific Language)
+Build scripts like Gradle (KTS)
+
+🟢 24. Kotlin Multiplatform
+Share code between Android, iOS, Web
+
+KMM (Kotlin Multiplatform Mobile)
+
+🟢 25. Interoperability with Java   
+Calling Java from Kotlin & vice versa
+
+Use .java libraries directly
+
+Optional: Android Topics with Kotlin
+Activity & Lifecycle
+
+RecyclerView
+
+ViewModel & LiveData
+
+Jetpack Compose (Modern UI toolkit)
+
+Retrofit, Room, Coroutines integration

@@ -1,0 +1,416 @@
+১. Kotlin পরিচিতি
+Kotlin হলো JetBrains কর্তৃক তৈরি একটি আধুনিক, স্থিতিশীল, এবং জাভার বিকল্প প্রোগ্রামিং ভাষা। 
+এটি JVM (Java Virtual Machine)-এর উপর চলে এবং Android অ্যাপ ডেভেলপমেন্ট ও Backend সার্ভার তৈরি করতে ব্যবহৃত হয়। 
+Kotlin Multiplatform এর মাধ্যমে একই কোড Android, iOS, ওয়েব এবং অন্যান্য প্ল্যাটফর্মে চালানো যায়।
+
+২. Variables (ভ্যারিয়েবল)
+val: Immutable (অপরিবর্তনীয়), অর্থাৎ একবার মান দিলে পরে বদলানো যায় না।
+
+kotlin
+Copy
+Edit
+val name: String = "Faruk"
+var: Mutable (পরিবর্তনীয়), মান যেকোনো সময় পরিবর্তন করা যায়।
+
+kotlin
+Copy
+Edit
+var age: Int = 25
+age = 26  // ঠিক আছে
+Kotlin এ টাইপ নির্ধারণ (type inference) অটোমেটিক হয়, তাই অনেক সময় টাইপ লিখতে হয় না:
+
+kotlin
+Copy
+Edit
+val city = "Dhaka"  // String ধরা হবে
+৩. Data Types (ডাটা টাইপস)
+সংখ্যা টাইপ:
+
+Int (পূর্ণসংখ্যা)
+
+Long (বড় পূর্ণসংখ্যা)
+
+Double (দশমিক সংখ্যা)
+
+Float (কম প্রেসিশনের দশমিক সংখ্যা)
+
+ক্যারেক্টার টাইপ:
+
+Char (একটি অক্ষর, যেমন 'A')
+
+বুলিয়ান টাইপ:
+
+Boolean (true বা false)
+
+৪. String Handling (স্ট্রিং পরিচালনা)
+String Template:
+ভ্যারিয়েবল ভেতরে ইনসার্ট করতে $ ব্যবহার করা হয়।
+
+kotlin
+Copy
+Edit
+val name = "Faruk"
+println("My name is $name")
+Multiline String:
+তিনটি ডাবল কোটেশনে ঘেরা টেক্সট যা একাধিক লাইনে লেখা যায়।
+
+kotlin
+Copy
+Edit
+val text = """
+    আমি Kotlin শিখছি।
+    এটি খুবই মজার ভাষা।
+"""
+স্ট্রিং ফাংশন:
+
+.length — দৈর্ঘ্য
+
+.toUpperCase() — বড় হাতের অক্ষরে রূপান্তর
+
+.trim() — আগের/পিছনের স্পেস সরানো
+
+৫. Conditional Statements (শর্তানুযায়ী সিদ্ধান্ত)
+if - else:
+
+kotlin
+Copy
+Edit
+if (age > 18) {
+    println("Adult")
+} else {
+    println("Minor")
+}
+when:
+Java এর switch এর বিকল্প, অনেক সহজ ও শক্তিশালী।
+
+kotlin
+Copy
+Edit
+when (color) {
+    "Red" -> println("Stop")
+    "Green" -> println("Go")
+    else -> println("Wait")
+}
+৬. Loops (লুপ)
+for loop:
+
+kotlin
+Copy
+Edit
+for (i in 1..5) {
+    println(i)
+}
+while loop:
+
+kotlin
+Copy
+Edit
+var i = 1
+while (i <= 5) {
+    println(i)
+    i++
+}
+do-while loop:
+
+kotlin
+Copy
+Edit
+var i = 1
+do {
+    println(i)
+    i++
+} while (i <= 5)
+Loop with index:
+
+kotlin
+Copy
+Edit
+val list = listOf("A", "B", "C")
+for ((index, value) in list.withIndex()) {
+    println("$index : $value")
+}
+৭. Functions (ফাংশন)
+সাধারণ ফাংশন:
+
+kotlin
+Copy
+Edit
+fun add(a: Int, b: Int): Int {
+    return a + b
+}
+Default Arguments:
+
+kotlin
+Copy
+Edit
+fun greet(name: String = "Guest") {
+    println("Hello $name")
+}
+Named Arguments:
+
+kotlin
+Copy
+Edit
+greet(name = "Faruk")
+Lambda Function:
+সংক্ষিপ্ত ফাংশন, যা ভেরিয়েবল হিসাবে ব্যবহার হয়।
+
+kotlin
+Copy
+Edit
+val sum = { a: Int, b: Int -> a + b }
+println(sum(3, 4))  // 7
+৮. Null Safety (নাল সেফটি)
+Kotlin-এ ডিফল্টভাবে কোনো ভ্যারিয়েবল null হতে পারে না।
+
+Nullable Type:
+
+kotlin
+Copy
+Edit
+var name: String? = null
+Safe call operator (?.):
+যদি null না হয়, তখন ফাংশন কল হবে, না হলে null ফিরবে।
+
+kotlin
+Copy
+Edit
+println(name?.length)
+Not-null assertion (!!):
+null হলে exception দিবে।
+
+kotlin
+Copy
+Edit
+println(name!!.length)
+Elvis operator (?:):
+null হলে বিকল্প মান দেয়।
+
+kotlin
+Copy
+Edit
+val length = name?.length ?: 0
+৯. Collections (কলেকশন)
+List: Ordered collection
+
+kotlin
+Copy
+Edit
+val list = listOf("A", "B", "C")
+Set: Unique elements
+
+kotlin
+Copy
+Edit
+val set = setOf(1, 2, 3)
+Map: Key-Value pairs
+
+kotlin
+Copy
+Edit
+val map = mapOf("a" to 1, "b" to 2)
+Mutable versions (mutableListOf, mutableSetOf, mutableMapOf) পরিবর্তনশীল।
+
+Iteration:
+
+kotlin
+Copy
+Edit
+list.forEach { println(it) }
+১০. Object-Oriented Concepts (অবজেক্ট ওরিয়েন্টেড)
+Class ও Object:
+
+kotlin
+Copy
+Edit
+class Person(val name: String)
+val p = Person("Faruk")
+Constructor:
+Primary constructor (উপরে দেখানো) ও secondary constructor।
+
+Inheritance:
+
+kotlin
+Copy
+Edit
+open class Animal
+class Dog : Animal()
+Override:
+
+kotlin
+Copy
+Edit
+open class Animal {
+    open fun sound() { println("Animal sound") }
+}
+class Dog : Animal() {
+    override fun sound() { println("Bark") }
+}
+Interface:
+শুধুমাত্র মেথড সিগনেচার; implementation দেয়া হয় ক্লাসে।
+
+kotlin
+Copy
+Edit
+interface Drivable {
+    fun drive()
+}
+Abstract Class:
+কিছু মেথড abstract ও কিছু implemented থাকতে পারে।
+
+১১. Data Classes (ডেটা ক্লাস)
+ডেটা সংরক্ষণের জন্য সহজ ক্লাস।
+
+Kotlin নিজেই equals(), hashCode(), toString() তৈরি করে দেয়।
+
+kotlin
+Copy
+Edit
+data class User(val id: Int, val name: String)
+val user = User(1, "Faruk")
+println(user)  // User(id=1, name=Faruk)
+১২. Enum Class (এনাম ক্লাস)
+নির্দিষ্ট ধরণের ধ্রুবক (constants) গোষ্ঠী।
+
+kotlin
+Copy
+Edit
+enum class Color {
+    RED, GREEN, BLUE
+}
+প্রপার্টি ও মেথড থাকতে পারে।
+
+১৩. Sealed Classes (সীল্ড ক্লাস)
+ক্লাসের সীমাবদ্ধ হায়ারার্কি তৈরি করে।
+
+ব্যবহার হয় যখন when স্টেটমেন্ট দিয়ে সব সাবক্লাস কভার করতে হয়।
+
+kotlin
+Copy
+Edit
+sealed class Result
+class Success(val data: String) : Result()
+class Failure(val error: Throwable) : Result()
+১৪. Exception Handling (এক্সেপশন হ্যান্ডলিং)
+try-catch-finally:
+
+kotlin
+Copy
+Edit
+try {
+    val x = 10 / 0
+} catch (e: ArithmeticException) {
+    println("Cannot divide by zero")
+} finally {
+    println("Cleanup")
+}
+throw: Exception ছুঁড়ে ফেলা।
+
+১৫. Extensions (এক্সটেনশন)
+বিদ্যমান ক্লাসে নতুন ফাংশন বা প্রপার্টি যোগ করার সুবিধা।
+
+kotlin
+Copy
+Edit
+fun String.lastChar(): Char = this[this.length - 1]
+println("Kotlin".lastChar())  // n
+১৬. Higher-Order Functions (হায়ার অর্ডার ফাংশন)
+ফাংশনকে প্যারামিটার বা রিটার্ন হিসেবে ব্যবহার করা।
+
+kotlin
+Copy
+Edit
+fun calculate(a: Int, b: Int, op: (Int, Int) -> Int): Int {
+    return op(a, b)
+}
+val sum = calculate(3, 4, { x, y -> x + y })
+সাধারণ ফাংশন: map, filter, forEach
+
+১৭. Lambda Expressions (ল্যাম্বডা এক্সপ্রেশন)
+সংক্ষিপ্ত ফাংশন যা { parameters -> expression } ফরম্যাটে হয়।
+
+kotlin
+Copy
+Edit
+val double = { x: Int -> x * 2 }
+println(double(5))  // 10
+১৮. Scope Functions (স্কোপ ফাংশন)
+নির্দিষ্ট অবজেক্টের সাথে কোড চালাতে সুবিধা দেয়।
+
+ধরো:
+
+let
+
+run
+
+with
+
+apply
+
+also
+
+উদাহরণ:
+
+kotlin
+Copy
+Edit
+val result = "Kotlin".let {
+    println(it)
+    it.length
+}
+১৯. Coroutines (Async Programming)
+Kotlin-এ asynchronous কাজের জন্য।
+
+suspend ফাংশন, launch, async, delay() ইত্যাদি।
+
+Structured concurrency দিয়ে সহজ ও নিরাপদ async কোড।
+
+২০. Annotations (অ্যানোটেশন)
+Metadata হিসেবে কাজ করে কোডে।
+
+যেমন:
+
+@JvmStatic (Java compatibility)
+
+@SerializedName (JSON serialization)
+
+২১. Generics (জেনেরিক্স)
+টাইপ সেফটি নিশ্চিত করে রিইউজেবল কোড তৈরিতে সাহায্য করে।
+
+kotlin
+Copy
+Edit
+class Box<T>(val value: T)
+val box = Box<Int>(10)
+২২. Kotlin Standard Library
+Kotlin এর বিল্ট-ইন লাইব্রেরি, যেমন kotlin.collections, kotlin.text ইত্যাদি।
+
+সাধারণ কাজের জন্য বিভিন্ন ইউটিলিটি ফাংশন থাকে।
+
+২৩. Kotlin DSL (Domain Specific Language)
+Kotlin দিয়ে কাস্টম ভাষা তৈরি করা যায়।
+
+Gradle build script (KTS) এর উদাহরণ।
+
+২৪. Kotlin Multiplatform
+একই কোড Android, iOS, ওয়েব ইত্যাদিতে চালানোর সুবিধা।
+
+KMM (Kotlin Multiplatform Mobile) Android ও iOS জন্য।
+
+২৫. Interoperability with Java
+Kotlin ও Java একসাথে কাজ করে।
+
+Kotlin থেকে সরাসরি Java লাইব্রেরি ব্যবহার করতে পারো, এবং উল্টোও সম্ভব।
+
+Android Optional Topics
+(কিছু Android ডেভেলপমেন্টের জন্য Kotlin এর গুরুত্বপূর্ণ বিষয়)
+
+Activity & Lifecycle
+
+RecyclerView
+
+ViewModel & LiveData
+
+Jetpack Compose (নতুন UI toolkit)
+
+Retrofit, Room, Coroutines integration
