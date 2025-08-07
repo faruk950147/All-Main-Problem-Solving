@@ -23,7 +23,7 @@ cursor.close()
 conn.close()
 
 
-Great — you’ve created a Python list named releaselist that contains tuples representing different Python versions, their release dates, support status, and key features.
+You’ve created a Python list named releaselist that contains tuples representing different Python versions, their release dates, support status, and key features.
 
 If you’d like to insert this data into a MySQL database, here’s how you can do it step by step.
 
@@ -32,8 +32,6 @@ Step-by-step: Insert releaselist into MySQL
 Run this SQL in your MySQL client (like MySQL Workbench, phpMyAdmin, or command line):
 
 sql
-Copy
-Edit
 CREATE TABLE python_releases (
     id INT AUTO_INCREMENT PRIMARY KEY,
     version VARCHAR(20),
@@ -43,8 +41,6 @@ CREATE TABLE python_releases (
 );
 2. Python script to insert data
 python
-Copy
-Edit
 import mysql.connector
 
 # Your release list
@@ -95,11 +91,9 @@ your_password → Your password
 
 your_database → The name of your database
 
-✅ Output
+Output
 When run successfully, you’ll see something like:
 
-Copy
-Edit
 10 records inserted.
 Let me know if you’d like to:
 
@@ -140,10 +134,8 @@ Insert the data
 
 Here's the full working Python script that assumes the table is already created. If it’s not, I’ll include the SQL for creating the table at the end.
 
-✅ Python Script to Insert Data into MySQL
+Python Script to Insert Data into MySQL
 python
-Copy
-Edit
 import mysql.connector
 
 # Data to insert
