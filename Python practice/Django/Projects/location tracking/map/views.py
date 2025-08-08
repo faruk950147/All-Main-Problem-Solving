@@ -41,6 +41,9 @@ class MapView(View):
                     'time_zone': time_zone,
                     'carrier_name': carrier_name,
                     })
+                else:
+                    messages.error(request, 'Invalid phone number!')
+                    return render(request, 'map/map.html', {'form': form})
             except Exception as e:
                 messages.error(request, str(e))
                 return render(request, 'map/map.html', {'form': form})
