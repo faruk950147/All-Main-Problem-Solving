@@ -22,6 +22,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-(k4)h2p)$xf6%dr7-t2!9vvvhim9%1$$c(jgew*x5@_s10=obp'
 
+# OpenCage Geocoder API Key
+OPENCAGE_API_KEY = '992f1a79901b4948892a93c128f9f515'
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
