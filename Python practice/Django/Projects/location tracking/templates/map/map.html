@@ -16,6 +16,13 @@
                    <h3> <strong>Location:</strong> {{ location }}</h3> 
                    <p> <strong>Time Zone:</strong> {{ time_zone }}</p>
                    <p> <strong>Service Provider:</strong> {{ service_provider }}</p>
+                   <div id="map" style="max-width: 800px; max-height: 100vh; margin: 0 auto;">
+                        {% if map %}
+                            <strong>Map : </strong> {{ map|safe }}
+                        {% else %}
+                            <p>No map available.</p>
+                        {% endif %}
+                   </div>
                 {% else %}
                     <p>No location available.</p>
                 {% endif %}
