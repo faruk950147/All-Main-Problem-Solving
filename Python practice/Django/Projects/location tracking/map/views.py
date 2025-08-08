@@ -21,15 +21,15 @@ class MapView(View):
             phone_number = phonenumbers.parse(number)
             time_zone = timezone.time_zones_for_number(phone_number)
             carrier_name = carrier.name_for_number(phone_number, 'en')
-            region = phone_geocoder.description_for_number(phone_number, 'en')
+            location = phone_geocoder.description_for_number(phone_number, 'en')
 
-            oc_geocoder = OpenCageGeocode(api_key)
-            result = oc_geocoder.geocode(region)
+            result = OpenCageGeocode(api_key).geocode(location)
             lat = result[0]['geometry']['lat']
             lng = result[0]['geometry']['lng']
 
             # Folium Map as HTML
             map_object = folium.Map(location=[lat, lng], zoom_start=15)
+            folium.Marker([lat, lng]).add_to(map_object)
             map_html = map_object._repr_html_()
 
             messages.success(request, 'Location found successfully!')
@@ -38,7 +38,7 @@ class MapView(View):
                 'map': map_html,
                 'time_zone': time_zone,
                 'carrier_name': carrier_name,
-                'region': region
+                'location': location
             })
         return render(request, 'map/map.html', {'form': form})
 
