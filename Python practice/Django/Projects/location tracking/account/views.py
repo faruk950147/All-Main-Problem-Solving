@@ -16,12 +16,18 @@ import logging  # noqa: E402
 logger = logging.getLogger(__name__)
 # Create your views here.
 
-class Sign_up(generic.View):
+class SignUpView(generic.View):
     def get(self, request):
         return render(request, 'account/register.html')
-class Sign_in(generic.View):
+class SignInView(generic.View):
     def get(self, request):
         return render(request, 'account/login.html')
-class Sign_out(generic.View):
+class SignOutView(generic.View):
     def get(self, request):
-        return redirect('sign')
+        try:
+            logout(request)
+            messages.success(request, 'You are sign out successfully!')
+            return redirect('sign')
+        except Exception as e:
+            logger.error(f"{e}")
+            return redirect('sign')
