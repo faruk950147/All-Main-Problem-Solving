@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'quiz',
+    'quiz.apps.QuizConfig',
+    'account.apps.AccountConfig',
 ]
 
 MIDDLEWARE = [
@@ -109,7 +110,15 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# Email B
+# Authentication Custom User Model START
+AUTH_USER_MODEL = 'account.User'
+AUTHENTICATION_BACKENDS = [
+    "django.contrib.auth.backends.ModelBackend",
+    "account.authentication.EmailAuthBackend",
+]
+
+# Authentication Custom User Model END
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
@@ -127,6 +136,24 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
+MEDIA_URL = 'media/'
+
+# Extra places for collectstatic to find static files.
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR / 'static'),
+]
+
+STATIC_ROOT = os.path.join(BASE_DIR / 'staticfiles')
+MEDIA_ROOT = os.path.join(BASE_DIR / 'media')
+
+
+# Email send management
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'faruk950147@gmail.com'
+EMAIL_HOST_PASSWORD = 'faruk950147'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
