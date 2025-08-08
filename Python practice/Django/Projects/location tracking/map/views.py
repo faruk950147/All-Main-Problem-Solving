@@ -31,10 +31,10 @@ class MapView(View):
 
             location = geocoder.description_for_number(phone_number, "en") or "Unknown"
             time_zone = ", ".join(timezone.time_zones_for_number(phone_number)) or "Unknown"
-            carrier_name = carrier.name_for_number(phone_number, "en") or "Unknown"
+            service_provider = carrier.name_for_number(phone_number, "en") or "Unknown"
 
             try:
-                results = OpenCageGeocode(OPENCAGE_API_KEY).geocode(location)
+                results = OpenCageGeocode(OPENCAGE_API_KEY).geocode(str(location))
             except Exception as e:
                 messages.error(request, f"Geocoding API error: {e}")
                 return render(request, 'map/map.html', context)
@@ -49,7 +49,7 @@ class MapView(View):
                 context.update({
                     'location': location,
                     'time_zone': time_zone,
-                    'carrier_name': carrier_name,
+                    'service_provider': service_provider,
                 })
             else:
                 messages.warning(request, "Location info not found.")
