@@ -18,10 +18,10 @@ logger = logging.getLogger(__name__)
 
 class Sign_up(generic.View):
     def get(self, request):
-        return render(request, 'account/sign_up.html')
+        return render(request, 'account/register.html')
 class Sign_in(generic.View):
     def get(self, request):
-        return render(request, 'account/sign_in.html')
+        return render(request, 'account/login.html')
 class Sign_out(generic.View):
     def get(self, request):
-        return render(request, 'account/sign_out.html')
+        return redirect('sign')
