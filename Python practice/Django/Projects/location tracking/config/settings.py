@@ -37,8 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'map.apps.MapConfig',
     'account.apps.AccountConfig',
+    'map.apps.MapConfig',
 ]
 
 MIDDLEWARE = [
@@ -100,6 +100,12 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+#  Auth configuration
+AUTH_USER_MODEL = 'account.User'
+AUTHENTICATION_BACKENDS = [
+    'account.authentication.EmailAuthBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
@@ -123,7 +129,13 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
-# Email B
+# Email managment configuration
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'faruk950147@gmail.com'
+EMAIL_HOST_PASSWORD = 'faruk950147'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
