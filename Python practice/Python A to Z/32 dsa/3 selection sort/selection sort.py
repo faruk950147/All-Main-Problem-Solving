@@ -2,7 +2,7 @@ def selection_sort(lst):
     for i in range(len(lst)):
         min_idx = i
         for j in range(i + 1, len(lst)): 
-            if lst[j] < lst[min_idx]:
+            if lst[j] < lst[min_idx]: # if lst[j] > lst[min_idx]: largest element
                 min_idx = j
         if min_idx != i:
             lst[i], lst[min_idx] = lst[min_idx], lst[i]           
