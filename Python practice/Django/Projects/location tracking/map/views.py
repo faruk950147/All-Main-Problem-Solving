@@ -3,7 +3,7 @@ from django.views import generic
 
 # Create your views here.
 
-class HomeView(generic.View):
+class MapView(generic.View):
     def get(self, request):
-        return render(request, 'map/home.html')
+        return render(request, 'map/map.html')
 

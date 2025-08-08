@@ -1,5 +1,5 @@
 from django.urls import path
-from map.views import HomeView
+from map.views import MapView
 urlpatterns = [
-    path('', HomeView.as_view(), name='home'),
+    path('', MapView.as_view(), name='map'),
 ]
