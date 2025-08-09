@@ -1,4 +1,5 @@
 from yt_dlp import YoutubeDL
+import os
 
 # url = "https://www.youtube.com/watch?v=9bZkp7q19f0"
 # output_path = "Downloads/%(title)s.%(ext)s"
@@ -9,8 +10,6 @@ from yt_dlp import YoutubeDL
 
 # print("Done")
 
-
-import os
 
 def download(url, output_path):
     if url and output_path:
