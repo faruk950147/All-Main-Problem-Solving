@@ -32,6 +32,6 @@ def download(url, output_path):
     else:
         print("Invalid URL or Output Path")
 
-url = "https://www.youtube.com/watch?v=9bZkp7q19f0"
+url = "https://www.youtube.com/watch?v=aP_XhzeZVF4"
 output_path = "Downloads/%(title)s.%(ext)s"
 download(url, output_path)
