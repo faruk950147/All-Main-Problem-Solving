@@ -1,3 +1,6 @@
+# collision is a function that checks if two objects are colliding and 
+# returns True if they are colliding and False if they are not colliding
+# 
 # def collision(list1, list2):
     # return [value for value in list1 if value in list2]
     # return list(set(list1) & set(list2))
@@ -20,6 +23,8 @@
 # print(collision([1,2,3,4,5], [4,5,6,7,8]))
 
 def collision(rect1, rect2):
+    # rect1 and rect2 are dictionaries or objects with x, y, width, height
+    # rect1 and rect2 are dictionaries or objects with x, y, width, height
     # rect1 and rect2 are dictionaries or objects with x, y, width, height
     if (rect1['x'] < rect2['x'] + rect2['width'] and
         rect1['x'] + rect1['width'] > rect2['x'] and
