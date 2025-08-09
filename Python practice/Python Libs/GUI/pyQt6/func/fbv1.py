@@ -1,13 +1,13 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QLabel, QWidget
+from PyQt6.QtWidgets import QApplication, QLabel, QWidget
 
 app = QApplication(sys.argv)
 
 window = QWidget()
-window.setWindowTitle('My First PyQt5 App')
+window.setWindowTitle('My First PyQt6 App')
 window.setGeometry(100, 100, 300, 200)
 
-label = QLabel('Hello, PyQt5!', window)
+label = QLabel('Hello, PyQt6!', window)
 label.move(100, 80)
 
 window.show()

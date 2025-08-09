@@ -1,6 +1,6 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QWidget, QGridLayout, QPushButton, QLineEdit, QVBoxLayout
-from PyQt5.QtCore import Qt
+from PyQt6.QtWidgets import QApplication, QWidget, QGridLayout, QPushButton, QLineEdit, QVBoxLayout
+from PyQt6.QtCore import Qt
 
 class RealLifeCalculator(QWidget):
     def __init__(self):
@@ -40,7 +40,7 @@ class RealLifeCalculator(QWidget):
         vbox.addLayout(grid)
 
         self.setLayout(vbox)
-        self.setWindowTitle('Real Life PyQt5 Calculator')
+        self.setWindowTitle('Real Life PyQt6 Calculator')
         self.show()
 
     def on_click(self):
