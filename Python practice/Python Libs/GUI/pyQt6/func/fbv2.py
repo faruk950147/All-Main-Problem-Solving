@@ -17,4 +17,4 @@ button.move(100, 100)
 button.clicked.connect(on_click)
 
 window.show()
-sys.exit(app.exec_())
+sys.exit(app.exec())

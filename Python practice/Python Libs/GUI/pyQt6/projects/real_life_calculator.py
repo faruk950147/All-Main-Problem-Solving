@@ -63,4 +63,4 @@ class RealLifeCalculator(QWidget):
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     calc = RealLifeCalculator()
-    sys.exit(app.exec_())
+    sys.exit(app.exec())

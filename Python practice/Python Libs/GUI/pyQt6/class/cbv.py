@@ -7,9 +7,8 @@ class MainWindow(QMainWindow):
         self.setWindowTitle('My First PyQt6 App')
         self.setGeometry(100, 100, 300, 200)
         
-        
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     window = MainWindow()
     window.show()
-    sys.exit(app.exec_())
+    sys.exit(app.exec())

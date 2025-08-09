@@ -11,4 +11,4 @@ label = QLabel('Hello, PyQt6!', window)
 label.move(100, 80)
 
 window.show()
-sys.exit(app.exec_())
+sys.exit(app.exec())
