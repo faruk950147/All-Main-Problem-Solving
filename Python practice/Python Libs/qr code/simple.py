@@ -1,12 +1,11 @@
 import qrcode
 
-filename = "google_qr"
 url = "https://www.google.com"
 
 img = qrcode.make(url)
-img.save(f"{filename}.png", scale=10)
+img.save("google_qr.png", scale=10)
 
-print(f"QR code saved as {filename}.png")
+print("QR code saved as google_qr.png")
 
 # def generate_qr_code(url, filename):
 #     # Generate QR code
