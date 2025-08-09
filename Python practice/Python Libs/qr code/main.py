@@ -11,10 +11,19 @@ start_time = time.time()
 # print("Done in", round(time.time() - start_time, 2), "seconds")
 
 
-with open("websites_list.csv", "r") as file:
-    for line in file:
-        data = line.strip().split(",")
-        # print(data[0], data[1])
-        qrcode.make(data[1]).save(f"qrimg/{data[0]}.png", scale=10)
+# with open("websites_list.csv", "r") as file:
+#     for line in file:
+#         data = line.strip().split(",")
+#         # print(data[0], data[1])
+#         qrcode.make(data[1]).save(f"qrimg/{data[0]}.png", scale=10)
+        
+def QrCode():
+    with open("websites_list.csv", "r") as file:
+        for line in file:
+            data = line.strip().split(",")
+            # print(data[0], data[1])
+            qrcode.make(data[1]).save(f"qrimg/{data[0]}.png", scale=10)
+
+QrCode()
 
 print("Done in", round(time.time() - start_time, 2), "seconds")
